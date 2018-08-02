@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+<base href="/">
+
+  <meta charset ="utf-8">
+  <script src="assets/js/angular.js"></script>
+  <script src="assets/js/angular-route.js"></script>
+  <script src="app/app.js"></script>
+  <script src="app/routes.js"></script>
+  <script src="assets/js/angular-animate.js"></script>
+
+  <script src="app/controller/userCtrl.js"></script>
+  <script src="app/controller/mainCtrl.js"></script>
+  <script src="app/controller/emailCtrl.js"></script>
+
+  <!-- Angular Services -->
+  <script src="app/services/userServices.js"></script>
+  <script src="app/services/authServices.js"></script>
+
+
+  <title>The Big Whammy</title>
+  <meta name="description" concept="The BigWhammy App">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  <link rel="stylesheet" href="../assets/css/whammy.css">
+  <!--<link rel="stylesheet" href="../assets/css/animate.css">-->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  <link href="https://fonts.googleapis.com/css?family=Give+You+Glory" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+  <link rel="icon" href="http://www.thebigwhammy.com/assets/images/logo.png" type="image/png" sizes="16x16">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body ng-app="userApp" ng-controller="mainCtrl as main" ng-show="main.loadme" ng-cloak>
+  <nav class="navbar navbar-expand-md fixed-top bg-grey">
+    <a href="#" class="navbar-brand navbar-left">
+      <div class="nav-image">
+        <img src="http://www.thebigwhammy.com/assets/images/logo.png"/>
+      </div>
+    </a>
+    <button class="navbar-toggler bg-dark" data-toggle="collapse" data-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <div class="container"  style="padding:30px;">
+        <div class="row justify-content-around">
+
+         <ul class="navbar-nav">
+          <div class="col-md-3">
+           <li class="nav-item">
+             <a data-scroll href="#hello" class="nav-link">
+               <div class="nav-image" id="aboutUs">
+                 <img src="http://www.thebigwhammy.com/assets/images/logo.png" class="center">
+               </div>
+               <span class="nav-title">About Us</span>
+             </a>
+           </li>
+         </div>
+         <div class="col-md-3">
+           <li class="nav-item">
+             <a data-scroll href="#masterminds" class="nav-link">
+               <div class="nav-image" id="masterminds">
+                 <img src="http://www.thebigwhammy.com/assets/images/logo.png" class="center">
+               </div>
+               <span class="nav-title">Masterminds</span>
+             </a>
+           </li>
+         </div>
+         <div class="col-md-3">
+           <li class="nav-item">
+            <a data-scroll href="#rules" class="nav-link">
+              <div class="nav-image" id="rules">
+                <img src="http://www.thebigwhammy.com/assets/images/logo.png" class="center">
+              </div>
+             <span class="nav-title">Rules</span>
+            </a>
+           </li>
+         </div>
+         <div class="col-md-3">
+           <li class="nav-item">
+             <a data-scroll href="#prizes" class="nav-link">
+               <div class="nav-image" id="prizes">
+                 <img src="http://www.thebigwhammy.com/assets/images/logo.png" class="center">
+               </div>
+               <span class="nav-title">Prizes/Awards</span>
+             </a>
+           </li>
+         </div>
+           <li class="nav-item">
+             <span class="nav-title">Hello <a ng-show="main.isLoggedIn" href="/profile"> {{ main.username}}</a></span>
+           </li>
+         </ul>
+    </div>
+   </div>
+   <div id="regOrLogIn" class="form-inline navbar-right">
+     <a  ng-show="!main.isLoggedIn" class="btn btn-transparent nav-link" data-scroll href="/login">LOG IN</a>
+     <a  ng-show="!main.isLoggedIn" class="btn btn-black nav-link" data-scroll href="/register" >JOIN US</a>
+     <a  ng-show="main.isLoggedIn"class="btn btn-black nav-link" data-scroll href="/#" ng-click="main.logout();">LOGOUT</a>
+   </div>
+  </div>
+  <!--<span class="nav-item-slider"></span>-->
+  </nav>
+
+  <header id="site-header" class="site-header valign-center">
+    <div class="intro">
+        <h1>BE A PART OF THE BIG WHAMMY FAMILY THIS SEASON!</h1>
+        <p>Count Down for the PL season 2018 - 2019</p>
+          <a class="btn btn-black" href="/register" >JOIN US</a>
+    </div>
+</header>
+
+<section id="hello">
+  <div class="container">
+  <div class="row">
+    <div class="top-left-watermark"  data-aos="fade-up" data-aos-duration="1000">
+      <p>hello -</p>
+    </div>
+
+    <blockquote clas="blockquote" data-aos="fade-up" data-aos-duration="3000">
+      <p class="mb-0"><i class="fa fa-quote-left"></i>The Big Whammy is a lorem ipsum dolor sit amet, consectur adipisicing elit, sed do suismod tempor incididunt ut labore et dolore magna aliqua. Ut venniam to bring football fans together.<i class="fa fa-quote-right"></i></p>
+      <footer class="blockquote-footer">Cherian Mathan, CEO</footer>
+    </blockquote>
+
+ </div>
+  <div class="bottom-center-icon" data-aos="fade-up" data-aos-duration="1000">
+    <img src="../assets/images/whistle.png">
+  </div>
+</div>
+
+
+</section>
+
+
+
+<section id ="our journey">
+  <div class="container">
+    <div class="row">
+  <div class="top-left-watermark" data-aos="fade-up" data-aos-duration="1000">
+    <p>Our Journey -</p>
+  </div>
+  </div>
+  <div class="row justify-content-around">
+  <div class="col-md-10">
+   <p data-aos="fade-up" data-aos-duration="3000">Though unofficially thought of and compiled almost 5 years ago, The Big Whammy officially kicked off in the 2015-2016 season.
+                    The Big Whammy is a result of pure passion and love for football and the support of loyal friends, more like family now.
+                    The Big Whammy has grown exponentially over the years and we are at our biggest season yet.
+                    Join us for the Ultimate Fantasy gaming experience.</p>
+    <img data-aos="fade-up" data-aos-duration="3000" alt="our journey pic" class="img-fluid" src="../assets/images/pioneers.jpg">
+  </div>
+</div>
+  <div class="bottom-center-icon" data-aos="fade-up"  data-aos-duration="1000">
+    <img src="../assets/images/whistle.png">
+  </div>
+ </div>
+</section>
+
+
+
+<section id="quotes">
+  <div class="container">
+    <div class="row">
+  <div class="top-left-watermark" data-aos="fade-up"  data-aos-duration="1000">
+    <p>Quotes -</p>
+  </div>
+</div>
+<div class="row" data-aos="fade-up" data-aos-duration="3000">
+    <div class="col-md-6" >
+      <blockquote clas="blockquote">
+        <p class="mb-0"><i class="fa fa-quote-left"></i>Lorem ipsum dolor sit anet, consectur adipisicing elit, sed do eiusmod tempor incididunt ut labore magna aliqua.<i class="fa fa-quote-right"></i></p>
+        <footer class="blockquote-footer">-Lorem Ipsum, Mumbai</footer>
+      </blockquote>
+    </div>
+    <div class="col-md-6">
+      <blockquote clas="blockquote">
+        <p class="mb-0"><i class="fa fa-quote-left"></i>Lorem ipsum dolor sit anet, consectur adipisicing elit, sed do eiusmod tempor incididunt ut labore magna aliqua.<i class="fa fa-quote-right"></i></p>
+        <footer class="blockquote-footer">-Lorem Ipsum, Dubai</footer>
+      </blockquote>
+    </div>
+  </div>
+  <div class="bottom-center-icon" data-aos="fade-up"  data-aos-duration="1000">
+    <img src="../assets/images/whistle.png">
+  </div>
+</div>
+</section>
+
+
+
+<section id="masterminds">
+  <div class="container">
+    <div class="row">
+  <div class="top-left-watermark" data-aos="fade-up"  data-aos-duration="1000">
+    <p>MasterMinds -</p>
+  </div>
+</div>
+<div class="row justify-content-around" data-aos="fade-up" data-aos-duration="3000" style="padding:30px;">
+
+    <div class="col-md-8  ">
+
+      <div class="card card-cover-width">
+        <img class="card-img-top" src="../assets/images/whistle.png" alt="Card image">
+        <div class="card-body card-body-custom card-body-grey">
+          <h4 class="card-title">Cherian Mathan</h4>
+          <p class="card-text">Just married CEO</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 card-cover-height ">
+
+      <div class="card card-cover-width">
+        <img class="card-img-top" src="../assets/images/whistle.png" alt="Card image">
+        <div class="card-body card-body-grey">
+          <h4 class="card-title">Lorem Ipsum</h4>
+          <p class="card-text">Figure me out</p>
+        </div>
+      </div>
+    </div>
+
+
+</div>
+  <div class="row justify-content-around" data-aos="fade-up" data-aos-duration="3000" style="padding:30px;">
+    <div class="col-md-4  ">
+
+      <div class="card card-cover-width">
+        <img class="card-img-top" src="../assets/images/whistle.png" alt="Card image">
+        <div class="card-body card-body-grey">
+          <h4 class="card-title">Lorem Ipsum</h4>
+          <p class="card-text">Figure me out</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4  ">
+
+      <div class="card card-cover-width">
+        <img class="card-img-top" src="../assets/images/whistle.png" alt="Card image">
+        <div class="card-body card-body-grey">
+          <h4 class="card-title">Jason Kurien</h4>
+          <p class="card-text">Cool Director</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4  ">
+
+      <div class="card card-cover-width">
+        <img class="card-img-top" src="../assets/images/whistle.png" alt="Card image">
+        <div class="card-body card-body-grey">
+          <h4 class="card-title">Vishal Pamnani</h4>
+          <p class="card-text">The SINGLE director</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="bottom-center-icon" data-aos="fade-up"  data-aos-duration="1000">
+    <img src="../assets/images/whistle.png">
+  </div>
+</div>
+</section>
+
+<section id="rules">
+  <div class="container">
+    <div class="row">
+  <div class="top-left-watermark" data-aos="fade-up"  data-aos-duration="1000">
+    <p>Rules -</p>
+  </div>
+</div>
+<div class="row" data-aos="fade-up" data-aos-duration="3000">
+  <div class="col-md-6 border-right">
+      <div class="period-symbol">
+        <img src="../assets/images/dot.png">
+      </div>
+      <p>In case of a tie of points for any award, the Award will be split irrespective of the overall points or their position in the FPL table, or any other factor. The Award will be split.</p>
+  </div>
+  <div class="col-md-6 border-bottom-left">
+    <div class="period-symbol">
+      <img src="../assets/images/dot.png">
+    </div>
+    <p>The use of your wildcards, bench boost, triple captain or free hit will not affect your liability to any of the awards in any way. Use them as per your discretion</p>
+  </div>
+
+</div>
+&nbsp
+<div class="row" data-aos="fade-up" data-aos-duration="3000">
+  <div class="col-md-6 border-right">
+    <div class="period-symbol">
+      <img src="../assets/images/dot.png">
+    </div>
+    <p>Any conflict to the Rules mentioned above or discrepancies arising inn the season will be discussed by The Big Whammy management and their decision on the same will be final and irrevocable.</p>
+  </div>
+  <div class="col-md-6">
+    <div class="period-symbol">
+      <img src="../assets/images/dot.png">
+    </div>
+    <p>Apart from the X participants, no participant will be allowed to enter the competition at any later stage.</p>
+  </div>
+</div>
+
+  <div class="bottom-center-icon" data-aos="fade-up"  data-aos-duration="1000">
+    <img src="../assets/images/whistle.png">
+  </div>
+</div>
+</section>
+
+<section id="prizes">
+<div class="container">
+<div class="row">
+  <div class="top-left-watermark" data-aos="fade-up"  data-aos-duration="1000">
+    <p>Prizes and awards -</p>
+  </div>
+</div>
+<div class="row justify-content-around" data-aos="fade-up" data-aos-duration="3000">
+  <div class="col-md-2">
+  </div>
+<div class="col-md-4">
+  <h6>Together we are all winners!</h6>
+</div>
+<div class="col-md-1"></div>
+</div>
+
+<div class="row">
+  <div class="row justify-content-around" style="padding:30px;">
+   <div class="col-md-4  ">
+
+     <div class="card card-cover-width">
+       <img class="card-img-top" src="../assets/images/whistle.png" alt="Card image">
+       <div class="card-body card-body-grey">
+         <h4 class="card-title">Award name</h4>
+         <p class="card-text">What's this for?</p>
+       </div>
+     </div>
+   </div>
+   <div class="col-md-4  ">
+
+     <div class="card card-cover-width">
+       <img class="card-img-top" src="../assets/images/whistle.png" alt="Card image">
+       <div class="card-body card-body-grey">
+         <h4 class="card-title">Award name</h4>
+         <p class="card-text">What's this for?</p>
+       </div>
+     </div>
+   </div>
+   <div class="col-md-4  ">
+
+     <div class="card card-cover-width">
+       <img class="card-img-top" src="../assets/images/whistle.png" alt="Card image">
+       <div class="card-body card-body-grey">
+         <h4 class="card-title">Award name</h4>
+         <p class="card-text">What's this for?</p>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+  <div class="bottom-center-icon" data-aos="fade-up"  data-aos-duration="1000">
+    <img src="../assets/images/whistle.png">
+  </div>
+</div>
+</section>
+
+<section id="renderedView">
+  <div ng-view>
+
+  </div>
+</section>
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+              <h5>Join fun, Join The Big Whammy family!</h5>
+                <p class="site-info">Contact us: +91-8087795471 | E-mail us at: <a href="mailto:info@thebigwhammy.com">info@thebigwhammy.com</a></p>
+                <p class="site-info">2018 TheBigWhammy.com, All rights reserved.
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+ <script>
+   AOS.init();
+ </script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+  <script src="/assets/js/whammy.js"></script>
+
+
+
+</body>
+</html>

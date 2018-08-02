@@ -1,0 +1,50 @@
+<section id="resend" class="section resend" data-aos="fade-up"  data-aos-duration="1000">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+              <div class="top-left-watermark">
+                <p>Resend Activation -</p>
+              </div>
+            </div>
+        </div>
+
+          <div class="col-md-12">
+        <form ng-submit="resend.checkCredentials(loginData);" id="signupandpay" name="login">
+            <div class="row">
+                <div class="col-sm-6 offset-sm-3">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Username" id="username" name="username" value="" required ng-model="resend.loginData.username">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Enter your password" id="password" name="password" value="" required ng-model="resend.loginData.password">
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt20">
+                <button type="submit" class="btn btn-black"  name="login">SUBMIT</button>
+            </div>
+        </form>
+
+
+
+        <div class="row show-hide-message" ng-show="resend.successMsg">
+          <div class="alert alert-success">{{ resend.successMsg }}</div>
+        </div>
+
+        <br>
+
+        <div class="jumbotron text-center" style="background-color:transparent;" ng-show="resend.loading">
+          <span class="fa fa-soccer-ball-o spin"></span>
+          <p>Loading...</p>
+        </div>
+
+        <div class="row show-hide-message" ng-show="resend.errorMsg">
+          <div class="alert alert-danger">{{ resend.errorMsg }}</div>
+        </div>
+      </div>
+      <div class="bottom-center-icon" data-aos="fade-up"  data-aos-duration="1000">
+        <img src="../assets/images/whistle.png">
+      </div>
+    </div>
+</section>
