@@ -19,7 +19,7 @@ angular.module('userControllers',['userServices'])
           app.successMsg = data.data.message;
           $timeout(function() {
             $location.path('/');
-          }, 2000);
+          }, 4000);
         }else{
           app.loading = false;
           //create an error message
