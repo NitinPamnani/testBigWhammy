@@ -9,7 +9,8 @@ var app = angular.module('appRoutes',['ngRoute'])
   })
 
   .when('/about',{
-    templateUrl:'app/views/pages/about.html'
+    templateUrl:'app/views/pages/about.html',
+    authenticated: true
   })
 
   .when('/register',{
@@ -26,6 +27,22 @@ var app = angular.module('appRoutes',['ngRoute'])
 
   .when('/prizes',{
     templateUrl:'app/views/pages/prizes.html'
+  })
+
+  .when('/masterminds',{
+    templateUrl:'app/views/pages/masterminds.html'
+  })
+
+  .when('/ourjourney',{
+    templateUrl:'app/views/pages/ourjourney.html'
+  })
+
+  .when('/rules', {
+    templateUrl:'app/views/pages/rules.html'
+  })
+
+  .when('/quotes', {
+    templateUrl:'app/views/pages/quotes.html'
   })
 
   .when('/logout',{

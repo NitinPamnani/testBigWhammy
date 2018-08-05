@@ -1,3 +1,15 @@
-<div class="page-header">
-  <h1> Hello {{ main.username }} from home route </h1>
-</div>
+
+<header id="site-header" class="site-header valign-center">
+  <div class="intro">
+      <h1>BE A PART OF THE BIG WHAMMY FAMILY THIS SEASON!</h1>
+      <p>WITH FANTASY LEAGUE AND MUCH MORE</P>
+      <div class="container" ng-show="!main.isLoggedIn">
+        <a class="btn btn-black" href="/register" >SIGN UP</a>
+        <span style="font-size:7vw; color:black;vertical-align:middle;">&nbsp/&nbsp</span>
+        <a class="btn btn-black" href="/login" >LOGIN</a>
+      </div>
+      <div ng-show="main.isLoggedIn">
+        <a class="btn btn-black" href="/leaderboard" disabled>LEADERBOARD COMING SOON</a>
+      </div>
+  </div>
+</header>

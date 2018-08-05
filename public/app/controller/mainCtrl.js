@@ -1,18 +1,26 @@
-angular.module('mainController',['authServices'])
+angular.module('mainController',['authServices', 'userServices'])
 //This contoller is going to maintain the logged in state
 // of the user hence injecting it onto index
-.controller('mainCtrl', function(Auth, $timeout, $location, $rootScope) {
+.controller('mainCtrl', function(Auth, $timeout, $location, $rootScope, User, $route) {
     var app =this;
 
     app.loadme= false;
 
     $rootScope.$on('$routeChangeStart', function(){
+
       if(Auth.isLoggedIn()) {
         app.isLoggedIn = true;
         Auth.getUser().then(function(data){
+          //console.log(data);
+          app.fullname = data.data.fullname;
           app.username = data.data.username;
           app.useremail = data.data.email;
           app.loadme = true;
+          app.hasPaid = false;
+          Auth.hasPaid().then(function(data){
+            app.hasPaid = data.data.success;
+            //console.log(data);
+          });
         });
       }else {
         app.isLoggedIn = false;
@@ -51,6 +59,52 @@ angular.module('mainController',['authServices'])
             app.disabled = false;
             app.errorMsg = data.data.message
           }
+        }
+      });
+    };
+
+    this.makepurchase = function(){
+      app.openpaymentform = false;
+      Auth.makepurchase().then(function(data){
+        if(data.data.success){
+          app.contactnum = data.data.userdetails.contactnum;
+          app.hastopay = data.data.userdetails.hastopay;
+          app.openpaymentform = true;
+          app.options = {
+            "key": "rzp_test_TPs56lLj5TlWtW",
+            "amount":  app.hastopay ,
+            "name": "The Big Whammy season 2018-19",
+            "description": "Entry ticket for the Big Whammy League",
+            "image": "http://www.thebigwhammy.com/assets/images/logo.png",
+            "handler": function (response){
+
+                User.updatePaymentOptions(response.razorpay_payment_id).then(function(data){
+                  app.openpaymentform = false;
+                  $timeout(function(){
+                    $route.reload();
+                  }, 2000);
+                });
+
+            },
+            "prefill": {
+            "name":  app.fullname ,
+            "email":  app.useremail,
+            "contact":  app.contactnum
+            },
+            "notes": {
+            "remark": "Payment for the big whammy"
+            },
+            "theme": {
+            "color": "#818181"
+            }
+          };
+          if( app.openpaymentform ){
+            var rzp1 = new Razorpay(app.options);
+            rzp1.open();
+          }
+
+        }else{
+          app.errorMsg = data.data.message;
         }
       });
     };

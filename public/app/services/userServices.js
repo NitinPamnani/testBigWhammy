@@ -32,5 +32,10 @@ angular.module('userServices', [])
   userFactory.resendLink = function(username){
     return $http.put('/api/resend', username);
   }
+
+  //User.updatePaymentOptions(username, razorpayid)
+  userFactory.updatePaymentOptions = function(razorpayId){
+    return $http.post('/api/rzupdate', {razorpayId});
+  }
   return userFactory;
 });

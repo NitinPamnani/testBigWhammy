@@ -35,7 +35,28 @@
                         </ul>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Favourite Club" id="favclub" name="favclub" value="" required ng-model="register.regData.favclub">
+                        <input type="text" class="form-control" list="clubs" placeholder="Favourite Club" id="favclub" name="favclub" value="" required ng-model="register.regData.favclub">
+                        <datalist id="clubs">
+                            <option value="AFC Bournemouth">
+                            <option value="Brighton & Hove Albion">
+                            <option value="Burnley">
+                            <option value="Cardiff City">
+                            <option value="Chelsea">
+                            <option value="Crystal Palace">
+                            <option value="Everton">
+                            <option value="Fulham">
+                            <option value="Huddersfield Town">
+                            <option value="Leicester City">
+                            <option value="Liverpool">
+                            <option value="Machester City">
+                            <option value="Manchester United">
+                            <option value="Newcastle United">
+                            <option value="Southhampton">
+                            <option value="Tottenham Hotspur">
+                            <option value="Watford">
+                            <option value="West Ham United">
+                            <option value="Wolverhampton Wanderers">                
+                        </datalist>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Fantasy Team Name" id="fanasyteamname" name="fplteamname" value="" required ng-model="register.regData.fplteamname">
@@ -51,20 +72,21 @@
                         </ul>
                     </div>
 
-                    <div class="form-group">
-                        <input ng-class="{ 'is-valid':(regForm.firstPassword.$valid && !regForm.firstPassword.$pristine), 'is-invalid':(!regForm.firstPassword.$valid && !regForm.firstPassword.$pristine) || (!regForm.firstPassword.$valid && regForm.$submitted) }" type="password" class="form-control" placeholder="Set a password" name="firstPassword" value="" ng-minlength="8" ng-maxlength="35" ng-pattern="/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])(?=.*?[\W]).{8,35}$/" required ng-model="firstPassword">
-                        <p class="help-block" ng-show="(!regForm.firstPassword.$pristine && regForm.firstPassword.$error.required) || (regForm.$submitted && regForm.firstPassword.$error.required)" style="color:red;">This field is required</p>
-                        <ul ng-show="(!regForm.firstPassword.$pristine && regForm.firstPassword.$error.pattern) || (regForm.firstPassword.$pristine && regForm.firstPassword.$error.minlength) || (regForm.firstPassword.$pristine && regForm.firstPassword.$error.maxlength)" class="help-block" style="color:red;font-size:1.5vw;">
-                          <li>Must be atleast 8 characters long and atmost 35 characters</li>
-                          <li>Must contain at least one upper case letter</li>
-                          <li>Must contain at least one lower case letter</li>
-                          <li>Must contain at least one special character</li>
-                          <li>Must contain at least one number</li>
-                        </ul>
-                    </div>
                 </div>
 
                 <div class="col-sm-6">
+                  <div class="form-group">
+                      <input ng-class="{ 'is-valid':(regForm.firstPassword.$valid && !regForm.firstPassword.$pristine), 'is-invalid':(!regForm.firstPassword.$valid && !regForm.firstPassword.$pristine) || (!regForm.firstPassword.$valid && regForm.$submitted) }" type="password" class="form-control" placeholder="Set a password" name="firstPassword" value="" ng-minlength="8" ng-maxlength="35" ng-pattern="/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])(?=.*?[\W]).{8,35}$/" required ng-model="firstPassword">
+                      <p class="help-block" ng-show="(!regForm.firstPassword.$pristine && regForm.firstPassword.$error.required) || (regForm.$submitted && regForm.firstPassword.$error.required)" style="color:red;">This field is required</p>
+                      <ul ng-show="(!regForm.firstPassword.$pristine && regForm.firstPassword.$error.pattern) || (regForm.firstPassword.$pristine && regForm.firstPassword.$error.minlength) || (regForm.firstPassword.$pristine && regForm.firstPassword.$error.maxlength)" class="help-block" style="color:red;font-size:1.5vw;">
+                        <li>Must be atleast 8 characters long and atmost 35 characters</li>
+                        <li>Must contain at least one upper case letter</li>
+                        <li>Must contain at least one lower case letter</li>
+                        <li>Must contain at least one special character</li>
+                        <li>Must contain at least one number</li>
+                      </ul>
+                  </div>
+
                   <div class="form-group">
                       <input ng-class="{ 'is-valid':confirmed && !regForm.repassword.$error.required, 'is-invalid': (!confirmed && !regForm.repassword.$error.required) || (regForm.repassword.$error.required && !regForm.repassword.$pristine) }" type="password" class="form-control" placeholder="Re-enter password" name="repassword" value="" required ng-model="confirm" match="{{[firstPassword]}}" ng-change="register.regData.password = confirm">
                       <p class="help-block" ng-show="(!regForm.repassword.$pristine && regForm.repassword.$error.required) || (regForm.$submitted && regForm.repassword.$error.required)" style="color:red;">This field is required</p>
@@ -72,11 +94,7 @@
                   </div>
 
                     <div class="form-group">
-                        <input type="number" class="form-control" placeholder="Contact: Add your country code without the + or - sign followed by your number. Eg: 0091xxxxxxxxxx for an Indian number" title="If your number is 999966xxxx and if it is an Indian number then please write it as 0091999966xxxx" id="cell" name="contactphone" required ng-model="register.regData.contactphone">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="number" class="form-control" placeholder="Whatsapp Contact: Add your country code without the + or - sign followed by your number. Eg: 0091xxxxxxxxxx for an Indian number" title="If your number is 999966xxxx and if it is an Indian number then please write it as 0091999966xxxx" id="wcell" name="whatsappcontactnumber" required ng-model="register.regData.whatsappcontactnumber">
+                        <input type="tel" id="phone" intl-tel-input class="form-control" placeholder="Contact: Add your country code without the + or - sign followed by your number. Eg: 0091xxxxxxxxxx for an Indian number" title="If your number is 999966xxxx and if it is an Indian number then please write it as 0091999966xxxx" name="contactphone" required ng-model="register.regData.contactphone">
                     </div>
 
                     <div class="form-group">
@@ -102,9 +120,10 @@
                 </div>
             </div>
             <div class="text-center mt20">
-                <button type="submit" class="btn btn-black" id="registration-btn" name="signup">JOIN US</button>
+                <button type="submit" class="btn btn-black" id="registration-btn" name="signup">SIGN UP</button>
+                <br><span><strong> OR </strong></span><br>
+                <a class="btn btn-black" href="/login" id="registration-btn" name="login">LOGIN</a>
             </div>
-            <p><strong>Already a member, <a href="/login">LOG IN</a> here</strong></p>
         </form>
 
         <div class="row show-hide-message" ng-show="register.successMsg">

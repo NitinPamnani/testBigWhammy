@@ -66,13 +66,14 @@ var userSchema = new Schema({
   favclub: {type: String, required: true, lowercase: true},
   teamname: {type:String, required: true, lowercase: true},
   contactnum: {type:Number, required:true, unique:true},
-  whatsappnum: {type:Number, required:true, unique:true},
   refferedby: {type:String, lowercase: true},
   country: {type:String, lowercase: true},
   dob: {type:Number},
   active: {type:Boolean, required:true, default: false},
-  temporarytoken: {type:String, required: true}
-
+  temporarytoken: {type:String, required: true},
+  hastopay: {type:Number, default:110000},
+  haspaid: {type:Boolean, default:false},
+  razorpaypaymentid:{type:String, default:null},
 });
 
 userSchema.pre('save', function(next){

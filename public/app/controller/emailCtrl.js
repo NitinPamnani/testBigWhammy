@@ -1,6 +1,6 @@
 angular.module('emailController', ['userServices'])
 
-  .controller('emailCtrl', function($routeParams, User, $timeout) {
+  .controller('emailCtrl', function($routeParams, User, $timeout, $location) {
 
     app = this;
     User.activateAccount($routeParams.token).then(function(data){

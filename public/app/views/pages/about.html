@@ -1,3 +1,26 @@
-<div class="page-header">
-  <h1> Hello {{ main.username }} from about route </h1>
+<section id="hello">
+  <div class="container">
+  <div class="row">
+<div class="jumbotron text-center" style="background-color:transparent;">
+    <div class="top-left-watermark"  data-aos="fade-up" data-aos-duration="1000">
+      <p>hello -</p>
+    </div>
+
+
+    <blockquote clas="blockquote" data-aos="fade-up" data-aos-duration="3000">
+      <p ng-show="main.isLoggedIn && !main.hasPaid" class="mb-0"><strong>{{ main.fullname }}</strong>, welcome to The Big Whammy family. It's gonna be an exciting ride ahead and Fantasy Football is just the start. To play this year's Big Whammy Fantasy season, <a ng-click="main.makepurchase();" href="">click here.</a></p>
+      <p ng-show="main.isLoggedIn && main.hasPaid" class="mb-0"><strong>{{ main.fullname }}</strong>, welcome to The Big Whammy family. It's gonna be an exciting ride ahead and Fantasy Football is just the start. Thanks for joining the Big Whammy League this season. Have a great season ahead. Cheers.<i class="fa fa-beer" aria-hidden="true"></i></p>
+      <footer class="blockquote-footer">Cherian Mathan, CEO</footer>
+    </blockquote>
+
+
+      <div ng-show="main.errorMsg" class="alert alert-success">{{ main.errorMsg }}</div>
+    </div>
+
+
+ </div>
+  <div class="bottom-center-icon" data-aos="fade-up" data-aos-duration="1000">
+    <img src="../assets/images/whistle.png">
+  </div>
 </div>
+</section>

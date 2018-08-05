@@ -20,6 +20,10 @@ angular.module('authServices', [])
     }
   };
 
+  authFactory.hasPaid = function() {
+    return $http.post('/api/entrygranted');
+  }
+
 
   authFactory.getUser = function() {
     if(AuthToken.getToken()){
@@ -31,6 +35,11 @@ angular.module('authServices', [])
   //Auth.logout
   authFactory.logout = function() {
     AuthToken.setToken();
+  };
+
+  //Auth.makepurchase
+  authFactory.makepurchase = function() {
+    return $http.post('/api/rzpay');
   };
 
   return authFactory;
