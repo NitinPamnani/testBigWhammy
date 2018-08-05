@@ -32,7 +32,6 @@ var client = nodemailer.createTransport(sgTransport(options));
     user.dob = req.body.dob;
     user.refferedby = req.body.refferedby;
     user.contactnum = req.body.contactphone;
-    user.whatsappnum = req.body.whatsappcontactnumber;
     user.country = req.body.country;
     user.temporarytoken = jwt.sign({fullname:user.fullname, username: user.username, email: user.email}, secret, {expiresIn: '24h' });
 
