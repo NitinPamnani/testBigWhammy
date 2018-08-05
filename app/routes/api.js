@@ -22,6 +22,7 @@ var client = nodemailer.createTransport(sgTransport(options));
   //TO ACCESS- http://localhost:<port>/api/users
   //Registraion route
   router.post('/users', function(req, res){
+    console.log("Yaha");
     var user = new User();
     user.fullname = req.body.fullname;
     user.username = req.body.username;
@@ -36,12 +37,13 @@ var client = nodemailer.createTransport(sgTransport(options));
     user.temporarytoken = jwt.sign({fullname:user.fullname, username: user.username, email: user.email}, secret, {expiresIn: '24h' });
 
     if (req.body.username == null || req.body.username == '' || req.body.password == null || req.body.password == '' || req.body.email == null || req.body.email == ''){
-      res.json({success: false, message:'Ensure username, email and password were provided'})
+      res.json({success: false, message:'Ensure username, email and password were provided'});
     }else{
 
 
       user.save(function(err){
         if(err){
+          console.log(err);
           if(err.errors != null){
             if(err.errors.fullname){
                 res.json({success: false, message: err.errors.fullname.message });
@@ -67,6 +69,7 @@ var client = nodemailer.createTransport(sgTransport(options));
             }
           }
         }else{
+          console.log("Yaha bhi");
           var email = {
             from: 'The Big Whammy Team, info@bigwhammy.com',
             to: user.email,

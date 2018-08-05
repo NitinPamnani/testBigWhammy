@@ -73,7 +73,7 @@ var userSchema = new Schema({
   temporarytoken: {type:String, required: true},
   hastopay: {type:Number, default:110000},
   haspaid: {type:Boolean, default:false},
-  razorpaypaymentid:{type:String, default:null},
+  razorpaypaymentid:{type:String, default:null}
 });
 
 userSchema.pre('save', function(next){
