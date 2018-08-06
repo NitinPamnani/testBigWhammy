@@ -30,9 +30,7 @@
 
 
 
-        <div class="row show-hide-message" ng-show="main.successMsg">
-          <div class="alert alert-success">{{ main.successMsg }}</div>
-        </div>
+      
 
         <br>
 
@@ -41,9 +39,9 @@
           <p>Loading...</p>
         </div>
 
-        <div class="row show-hide-message" ng-show="main.errorMsg">
-          <div class="alert alert-danger">{{ main.errorMsg }}&nbsp<a ng-show="main.expired" href="/resend"><button type="button" class="btn btn-black">Resend Activation Link</button></a></div>
-        </div>
+
+          <a ng-show="main.expired" href="/resend"><button type="button" class="btn btn-black">Resend Activation Link</button></a>
+
       </div>
       <div class="bottom-center-icon" data-aos="fade-up"  data-aos-duration="1000">
         <img src="../assets/images/whistle.png">

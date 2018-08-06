@@ -1,6 +1,6 @@
-angular.module('emailController', ['userServices'])
+angular.module('emailController', ['userServices','notificationServices'])
 
-  .controller('emailCtrl', function($routeParams, User, $timeout, $location) {
+  .controller('emailCtrl', function($routeParams, User, $timeout, $location, Notifications) {
 
     app = this;
     User.activateAccount($routeParams.token).then(function(data){
@@ -11,11 +11,13 @@ angular.module('emailController', ['userServices'])
 
       if(data.data.success){
         app.successMsg = data.data.message+ '...Redirecting';
+        Notifications.showNotification('success',app.successMsg,'The Big Whammy');
         $timeout(function(){
           $location.path('/login');
         }, 2000);
       }else {
         app.errorMsg = data.data.message+'...Redirecting';
+        Notifications.showNotification('error',app.errorMsg,'The Big Whammy');
         $timeout(function(){
           $location.path('/login');
         }, 2000);
@@ -36,11 +38,13 @@ angular.module('emailController', ['userServices'])
                 User.resendLink(app.loginData).then(function(data) {
                   if(data.data.success){
                     app.successMsg = data.data.message;
+                    Notifications.showNotification('success',app.successMsg,'The Big Whammy');
                   }
                 });
               } else {
                 app.disabled = true;
                 app.errorMsg = data.data.message;
+                Notifications.showNotification('error',app.errorMsg,'The Big Whammy');
               }
           });
       };

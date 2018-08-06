@@ -205,13 +205,13 @@ ul li {
   letter-spacing: 5px;
 }
 .btn-black {
-  color: #fff;
-  background-color: #000;
+  color: #000;
+  background-color: #4CB5F5;
   letter-spacing: 5px;
 }
 .btn-black:hover, .btn-black:focus {
-  color: #fff;
-  background-color: #000;
+  color: #000;
+  background-color: #4CB5F5;
 }
 
 /*
@@ -264,7 +264,7 @@ ul li {
   margin: 0;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: #000;
+  background-color: #34675C;
   -webkit-transition: all 0.2s linear 0s;
           transition: all 0.2s linear 0s;
 }
@@ -350,7 +350,7 @@ ul li {
   padding: 0 15px;
   display: table-cell;
   vertical-align: middle;
-  height: 60vh;
+  height: 70vh;
 }
 .site-header .intro h2 {
   margin-top: 0px;
@@ -592,9 +592,13 @@ ul li {
  * 7.0 Site-footer
  */
 .site-footer {
-  background-color: #666666;
+  background-color: #34675C;
   color: #fff;
   text-align: center;
+  position: relative;
+bottom: 0;
+  left: 0;
+  right: 0;
   padding: 30px 0;
 }
 .site-footer .site-info {
@@ -800,10 +804,10 @@ figure > img{
   width: auto;
 }
 
-.top-left-watermark > p{
+.top-left-watermark  p{
   font-family: 'Give You Glory', cursive;
   font-size: 5vw;
-  color: grey;
+  color: white;
   text-transform: lowercase;
 }
 
@@ -817,7 +821,7 @@ figure > img{
 
 .bottom-center-icon, .top-left-watermark {
   opacity: 0.5;
-  z-index: -100;
+
 }
 
 blockquote>p:before {
@@ -890,7 +894,7 @@ blockquote>p{
 }
 
 .bg-grey {
-  background-color: #787878;
+  background-color: #34675C;
 }
 
 @keyframes fadeIn {
@@ -917,4 +921,15 @@ blockquote>p{
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+section {
+  background-color: rgba(0, 0, 0, 0.3);
+  color:white;
+  min-height: 70vh;
+}
+
+.blockquote-footer {
+  color:white;
+  font-style:italic;
 }

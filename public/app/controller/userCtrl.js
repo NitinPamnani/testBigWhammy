@@ -1,6 +1,6 @@
-angular.module('userControllers',['userServices'])
+angular.module('userControllers',['userServices','notificationServices'])
 
-.controller('regCtrl', function($http, $location, $timeout, User) {
+.controller('regCtrl', function($http, $location, $timeout, User, Notifications) {
 
   var app = this;
 
@@ -17,6 +17,7 @@ angular.module('userControllers',['userServices'])
           app.loading = false;
           //create success message and return to home page
           app.successMsg = data.data.message;
+          Notifications.showNotification('success',app.successMsg,'The Big Whammy');
           $timeout(function() {
             $location.path('/');
           }, 4000);
@@ -24,12 +25,14 @@ angular.module('userControllers',['userServices'])
           app.loading = false;
           //create an error message
           app.errorMsg = data.data.message;
+          Notifications.showNotification('error',app.errorMsg,'The Big Whammy');
         }
       });
     } else{
       app.loading = false;
       //create an error message
       app.errorMsg = 'Please ensure form is filled out properly';
+      Notifications.showNotification('error',app.errorMsg,'The Big Whammy');
     }
 
   };

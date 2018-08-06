@@ -22,7 +22,7 @@ var client = nodemailer.createTransport(sgTransport(options));
   //TO ACCESS- http://localhost:<port>/api/users
   //Registraion route
   router.post('/users', function(req, res){
-    console.log("Yaha");
+
     var user = new User();
     user.fullname = req.body.fullname;
     user.username = req.body.username;
@@ -43,7 +43,7 @@ var client = nodemailer.createTransport(sgTransport(options));
 
       user.save(function(err){
         if(err){
-          console.log(err);
+
           if(err.errors != null){
             if(err.errors.fullname){
                 res.json({success: false, message: err.errors.fullname.message });
@@ -69,13 +69,13 @@ var client = nodemailer.createTransport(sgTransport(options));
             }
           }
         }else{
-          console.log("Yaha bhi");
+
           var email = {
             from: 'The Big Whammy Team, info@bigwhammy.com',
             to: user.email,
             subject: 'The Big Whammy account activation link',
             text: 'Hello' + user.fullname + 'Thank you for registering at thebigwhammy.com. Please click on the following to cpmplete the activation: https://testbigwhammy.herokuapp.com/activate/'+user.temporarytoken,
-            html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Thank you for registering at thebigwhammy.com. Please click the link below to cpmplete the activation:<br><br><a href="https://testbigwhammy.herokuapp.com/activate/'+user.temporarytoken+'">https://testbigwhammy.herokuapp.com/activate/</a>'
+            html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br> Thank you for registering at thebigwhammy.com. Please click the link below to cpmplete the activation:<br><a href="https://testbigwhammy.herokuapp.com/activate/'+user.temporarytoken+'">https://testbigwhammy.herokuapp.com/activate/</a>'
           };
 
           client.sendMail(email, function(err, info){
@@ -185,7 +185,7 @@ var client = nodemailer.createTransport(sgTransport(options));
             to: user.email,
             subject: 'Big Whammy account activation link Request',
             text: 'Hello' + user.fullname + 'You recently requested a new account activation link. Please click on the following to cpmplete the activation: https://testbigwhammy.herokuapp.com/activate/'+user.temporarytoken,
-            html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>You recently requested a new account activation link. Please click the link below to complete the activation:<br><br><a href="https://testbigwhammy.herokuapp.com/activate/'+user.temporarytoken+'">https://testbigwhammy.herokuapp.com/activate/</a>'
+            html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br>You recently requested a new account activation link. Please click the link below to complete the activation:<br><a href="https://testbigwhammy.herokuapp.com/activate/'+user.temporarytoken+'">https://testbigwhammy.herokuapp.com/activate/</a>'
           };
 
           client.sendMail(email, function(err, info){
@@ -224,7 +224,7 @@ var client = nodemailer.createTransport(sgTransport(options));
                 to: user.email,
                 subject: 'Account activated',
                 text: 'Hello' + user.fullname + 'Your account has been successfully activated',
-                html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Your account has been successfully activated.'
+                html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br>Your account has been successfully activated.'
               };
 
               client.sendMail(email, function(err, info){

@@ -1,7 +1,7 @@
-angular.module('mainController',['authServices', 'userServices'])
+angular.module('mainController',['authServices', 'userServices','notificationServices'])
 //This contoller is going to maintain the logged in state
 // of the user hence injecting it onto index
-.controller('mainCtrl', function(Auth, $timeout, $location, $rootScope, User, $route) {
+.controller('mainCtrl', function(Auth, $timeout, $location, $rootScope, User, $route, Notifications) {
     var app =this;
 
     app.loadme= false;
@@ -43,6 +43,7 @@ angular.module('mainController',['authServices', 'userServices'])
           app.loading = false;
           //create success message and return to home page
           app.successMsg = data.data.message;
+          Notifications.showNotification('success',app.successMsg,'The Big Whammy');
           $timeout(function() {
             $location.path('/about');
             app.loginData = '';
@@ -54,10 +55,12 @@ angular.module('mainController',['authServices', 'userServices'])
             app.expired = true;
             //create an error message
             app.errorMsg = data.data.message;
+            Notifications.showNotification('error',app.errorMsg,'The Big Whammy');
           }else{
             app.loading = false;
             app.disabled = false;
             app.errorMsg = data.data.message
+            Notifications.showNotification('error',app.errorMsg,'The Big Whammy');
           }
         }
       });
@@ -105,6 +108,7 @@ angular.module('mainController',['authServices', 'userServices'])
 
         }else{
           app.errorMsg = data.data.message;
+          Notifications.showNotification('error',app.errorMsg,'The Big Whammy');
         }
       });
     };

@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <input ng-class="{ 'is-valid':(regForm.fullname.$valid && !regForm.fullname.$pristine), 'is-invalid':(!regForm.fullname.$valid && !regForm.fullname.$pristine) || (!regForm.name.$valid && regForm.$submitted) }" type="text" class="form-control" placeholder="Full Name" id="firstname" name="fullname" value="" required ng-model="register.regData.fullname" ng-minLength = "3" ng-maxLength="20" ng-pattern="/^(([a-zA-Z]{3,20})+[ ]+([a-zA-Z]{3,20})+)+$/">
+                        <input ng-class="{ 'is-valid':(regForm.fullname.$valid && !regForm.fullname.$pristine), 'is-invalid':(!regForm.fullname.$valid && !regForm.fullname.$pristine) || (!regForm.name.$valid && regForm.$submitted) }" type="text" class="form-control" placeholder="Full Name" id="firstname" name="fullname" value="" required ng-model="register.regData.fullname" ng-minLength = "3" ng-maxLength="20" ng-pattern="/^(([a-zA-Z]{1,20})+[ ]+([a-zA-Z]{1,20})+)+$/">
                         <p class="help-block" ng-show="(!regForm.fullname.$pristine && regForm.fullname.$error.required) || (regForm.$submitted && regForm.fullname.$error.required)" style="color:red;">This field is required</p>
                         <ul ng-show="(!regForm.fullname.$pristine && regForm.fullname.$error.pattern) || (regForm.fullname.$pristine && regForm.fullname.$error.minlength) || (regForm.fullname.$pristine && regForm.fullname.$error.maxlength)" class="help-block" style="color:red;font-size:1.5vw;">
                           <li>Must have space between first and last name</li>
@@ -37,6 +37,7 @@
                     <div class="form-group">
                         <input type="text" class="form-control" list="clubs" placeholder="Favourite Club" id="favclub" name="favclub" value="" required ng-model="register.regData.favclub">
                         <datalist id="clubs">
+                            <option value="Arsenal">
                             <option value="AFC Bournemouth">
                             <option value="Brighton & Hove Albion">
                             <option value="Burnley">
@@ -55,7 +56,7 @@
                             <option value="Tottenham Hotspur">
                             <option value="Watford">
                             <option value="West Ham United">
-                            <option value="Wolverhampton Wanderers">                
+                            <option value="Wolverhampton Wanderers">
                         </datalist>
                     </div>
                     <div class="form-group">
@@ -126,9 +127,7 @@
             </div>
         </form>
 
-        <div class="row show-hide-message" ng-show="register.successMsg">
-          <div class="alert alert-success">{{ register.successMsg }}</div>
-        </div
+
 
         <br>
 
@@ -137,10 +136,7 @@
           <p>Loading...</p>
         </div>
 
-        <div class="row show-hide-message" ng-show="register.errorMsg">
-          <div class="alert alert-danger">{{ register.errorMsg }}</div>
-        </div>
-      </div>
+
       <div class="bottom-center-icon" data-aos="fade-up"  data-aos-duration="1000">
         <img src="../assets/images/whistle.png">
       </div>
