@@ -826,7 +826,7 @@ figure > img{
 }
 
 blockquote>p:before {
-  color: #ccc;
+  color: black;
   content: open-quote;
   font-size: 4em;
   line-height: 0.1em;
@@ -834,7 +834,7 @@ blockquote>p:before {
   vertical-align: -0.4em;
 }
 blockquote>p:after {
-  color: #ccc;
+  color: black;
   content: close-quote;
   font-size: 4em;
   line-height: 0.1em;

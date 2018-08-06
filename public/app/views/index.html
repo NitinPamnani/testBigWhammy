@@ -48,7 +48,7 @@
 </head>
 
 <body ng-app="userApp" ng-controller="mainCtrl as main" ng-show="main.loadme" ng-cloak style="background-image:url(../assets/images/siteBackdrop.jpg);background-repeat: no-repeat, repeat;background-size: cover;">
-  <nav class="navbar navbar-expand-md navbar-static-top bg-grey" style="letter-spacing:2px;">
+  <nav class="navbar navbar-expand-md navbar-static-top bg-grey">
 
         <a href="#" class="navbar-brand navbar-left" class="nav-link">
           <div class="nav-image">
@@ -140,10 +140,10 @@
      <a  ng-show="!main.isLoggedIn" class="btn btn-black nav-link" data-scroll href="/register" >JOIN US</a>-->
 
 
-      <span class="nav-title" ng-show="main.isLoggedIn" style="display:block;color:white">Hello <a href="#"> {{ main.username}}</a></span>
+      <span class="nav-title" ng-show="main.isLoggedIn" style="display:block;color:white"><a href="#"> {{ main.username}}</a></span>
 
-  
-     <a  ng-show="main.isLoggedIn"class="btn btn-black nav-link" data-scroll href="/#" ng-click="main.logout();">LOGOUT</a>
+
+     <a  ng-show="main.isLoggedIn"class="btn btn-very-small btn-black nav-link" data-scroll href="/#" ng-click="main.logout();">LOGOUT</a>
    </div>
   </div>
   <!--<span class="nav-item-slider"></span>-->
