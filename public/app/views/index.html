@@ -140,7 +140,7 @@
      <a  ng-show="!main.isLoggedIn" class="btn btn-black nav-link" data-scroll href="/register" >JOIN US</a>-->
 
 
-      <span class="nav-title" ng-show="main.isLoggedIn" style="display:block;color:white"><a href="#"> {{ main.username}}</a></span>
+      <span class="nav-title" ng-show="main.isLoggedIn" style="display:block;"><a href="#" style="color:white;"><strong> {{ main.username}}</strong></a></span>
 
 
      <a  ng-show="main.isLoggedIn"class="btn btn-very-small btn-black nav-link" data-scroll href="/#" ng-click="main.logout();">LOGOUT</a>
