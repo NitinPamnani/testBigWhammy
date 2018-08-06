@@ -138,12 +138,11 @@
    <div id="regOrLogIn" class="form-inline navbar-right">
      <!--<a  ng-show="!main.isLoggedIn" class="btn btn-transparent nav-link" data-scroll href="/login">LOG IN</a>
      <a  ng-show="!main.isLoggedIn" class="btn btn-black nav-link" data-scroll href="/register" >JOIN US</a>-->
-  <ul class="navbar-nav">
-     <li class="nav-item">
-      <span class="nav-title" ng-show="main.isLoggedIn" style="display:block;color:white">Hello <a href="#"> {{ main.username}}</a></span>
-    </li>
 
-  </ul>
+
+      <span class="nav-title" ng-show="main.isLoggedIn" style="display:block;color:white">Hello <a href="#"> {{ main.username}}</a></span>
+
+  
      <a  ng-show="main.isLoggedIn"class="btn btn-black nav-link" data-scroll href="/#" ng-click="main.logout();">LOGOUT</a>
    </div>
   </div>
