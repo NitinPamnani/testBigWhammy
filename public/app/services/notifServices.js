@@ -23,5 +23,29 @@ angular.module('notificationServices', [])
     toastr[level](message, title);
   }
 
+
+  notificationFactory.showLeagueCode = function(level, message, title){
+  toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-top-full-width",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "0",
+    "hideDuration": "0",
+    "timeOut": "0",
+    "extendedTimeOut": "0",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  };
+    toastr[level](message, title);
+  }
+
+
+
   return notificationFactory;
 });

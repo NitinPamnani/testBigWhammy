@@ -37,5 +37,11 @@ angular.module('userServices', [])
   userFactory.updatePaymentOptions = function(razorpayId){
     return $http.post('/api/rzupdate', {razorpayId});
   }
+
+  //User.updateInstaPaymentOptions(instaMojoId)
+  userFactory.updateInstaPaymentOptions = function(instaMojoId){
+    console.log("Herer drererer"+instaMojoId);
+    return $http.post('/api/rzupdate', {instaMojoId});
+  }
   return userFactory;
 });

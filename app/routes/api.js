@@ -29,7 +29,6 @@ var client = nodemailer.createTransport(sgTransport(options));
     user.password = req.body.password;
     user.email = req.body.email;
     user.favclub = req.body.favclub;
-    user.teamname = req.body.fplteamname;
     user.dob = req.body.dob;
     user.refferedby = req.body.refferedby;
     user.contactnum = req.body.contactphone;
@@ -74,8 +73,8 @@ var client = nodemailer.createTransport(sgTransport(options));
             from: 'The Big Whammy Team, info@bigwhammy.com',
             to: user.email,
             subject: 'The Big Whammy account activation link',
-            text: 'Hello' + user.fullname + 'Thank you for registering at thebigwhammy.com. Please click on the following to cpmplete the activation: https://testbigwhammy.herokuapp.com/activate/'+user.temporarytoken,
-            html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br> Thank you for registering at thebigwhammy.com. Please click the link below to cpmplete the activation:<br><a href="https://testbigwhammy.herokuapp.com/activate/'+user.temporarytoken+'">https://testbigwhammy.herokuapp.com/activate/</a>'
+            text: 'Hello' + user.fullname + 'Thank you for registering at thebigwhammy.com. Please click on the following to cpmplete the activation: http://www.thebigwhammy.com/activate/'+user.temporarytoken,
+            html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br> Thank you for registering at thebigwhammy.com. Please click the link below to cpmplete the activation:<br><a href="http://www.thebigwhammy.com/activate/'+user.temporarytoken+'">http://www.thebigwhammy.com/activate/</a>'
           };
 
           client.sendMail(email, function(err, info){
@@ -184,8 +183,8 @@ var client = nodemailer.createTransport(sgTransport(options));
             from: 'The Big Whammy Team, info@bigwhammy.com',
             to: user.email,
             subject: 'Big Whammy account activation link Request',
-            text: 'Hello' + user.fullname + 'You recently requested a new account activation link. Please click on the following to cpmplete the activation: https://testbigwhammy.herokuapp.com/activate/'+user.temporarytoken,
-            html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br>You recently requested a new account activation link. Please click the link below to complete the activation:<br><a href="https://testbigwhammy.herokuapp.com/activate/'+user.temporarytoken+'">https://testbigwhammy.herokuapp.com/activate/</a>'
+            text: 'Hello' + user.fullname + 'You recently requested a new account activation link. Please click on the following to cpmplete the activation: http://www.thebigwhammy.com/activate/'+user.temporarytoken,
+            html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br>You recently requested a new account activation link. Please click the link below to complete the activation:<br><a href="http://www.thebigwhammy.com/activate/'+user.temporarytoken+'">http://www.thebigwhammy.com/activate/</a>'
           };
 
           client.sendMail(email, function(err, info){
@@ -299,7 +298,7 @@ var client = nodemailer.createTransport(sgTransport(options));
 
  router.post('/rzupdate', function(req, res){
    //TODO: Verify payment on RazorPay before updating it in db
-   User.updateOne({ username:req.decoded.username }, {$set: { haspaid:true, razorpaypaymentid:req.body.razorpayId}},(function(err, user){
+   User.updateOne({ username:req.decoded.username }, {$set: { haspaid:true, razorpaypaymentid:req.body.instaMojoId}},(function(err, user){
      if(err){ throw err;}
 
      if(user.nModified > 0){

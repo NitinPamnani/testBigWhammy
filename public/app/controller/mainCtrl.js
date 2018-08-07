@@ -1,7 +1,7 @@
-angular.module('mainController',['authServices', 'userServices','notificationServices'])
+angular.module('mainController',['authServices', 'userServices','notificationServices','instamojoCheckout'])
 //This contoller is going to maintain the logged in state
 // of the user hence injecting it onto index
-.controller('mainCtrl', function(Auth, $timeout, $location, $rootScope, User, $route, Notifications) {
+.controller('mainCtrl', function(Auth, $timeout, $location, $rootScope, User, $route, Notifications, InstaCheckout) {
     var app =this;
 
     app.loadme= false;
@@ -43,6 +43,7 @@ angular.module('mainController',['authServices', 'userServices','notificationSer
           app.loading = false;
           //create success message and return to home page
           app.successMsg = data.data.message;
+          app.disabled = false;
           Notifications.showNotification('success',app.successMsg,'The Big Whammy');
           $timeout(function() {
             $location.path('/about');
@@ -55,6 +56,7 @@ angular.module('mainController',['authServices', 'userServices','notificationSer
             app.expired = true;
             //create an error message
             app.errorMsg = data.data.message;
+            app.disabled = false;
             Notifications.showNotification('error',app.errorMsg,'The Big Whammy');
           }else{
             app.loading = false;
@@ -66,7 +68,7 @@ angular.module('mainController',['authServices', 'userServices','notificationSer
       });
     };
 
-    this.makepurchase = function(){
+    /*this.makepurchase = function(){
       app.openpaymentform = false;
       Auth.makepurchase().then(function(data){
         if(data.data.success){
@@ -106,6 +108,23 @@ angular.module('mainController',['authServices', 'userServices','notificationSer
             rzp1.open();
           }
 
+        }else{
+          app.errorMsg = data.data.message;
+          Notifications.showNotification('error',app.errorMsg,'The Big Whammy');
+        }
+      });
+    };*/
+    this.makepurchase = function(){
+      app.openpaymentform = false;
+      Auth.makepurchase().then(function(data){
+        if(data.data.success){
+          app.contactnum = data.data.userdetails.contactnum;
+          app.hastopay = data.data.userdetails.hastopay;
+          app.openpaymentform = true;
+          Notifications.showNotification('warning',"<strong>Currently we are facing some issues with international debit cards, please make sure you pay with a credit card or netbanking.</strong>",'The Big Whammy');
+          $timeout(function(){
+            InstaCheckout.makeInstaPurchase();
+          }, 6000);
         }else{
           app.errorMsg = data.data.message;
           Notifications.showNotification('error',app.errorMsg,'The Big Whammy');
