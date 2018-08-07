@@ -40,10 +40,10 @@ angular.module('notificationServices', [])
     "showEasing": "swing",
     "hideEasing": "linear",
     "showMethod": "fadeIn",
-    "hideMethod": "fadeOut"
-    "tapToismiss": false
+    "hideMethod": "fadeOut",
+    "tapToDismiss": false
   };
-    toastr[level](message+'<button type="button" class="btn clear">OK</button>', title);
+    toastr[level](message, title);
   }
 
 
