@@ -4,13 +4,14 @@ angular.module('userControllers',['userServices','notificationServices'])
 
   var app = this;
 
-  this.regUser = function(regData, valid) {
+  this.regUser = function(regData, valid, pristine) {
     app.loading = true;
     app.successMsg = false;
     app.errorMsg = false;
-    this.regData.dob = new Date(this.regData.dob).getTime();
+
 
     if(valid) {
+      this.regData.dob = new Date(this.regData.dob).getTime();
       User.create(app.regData).then(function(data){
 
         if(data.data.success){
@@ -29,10 +30,12 @@ angular.module('userControllers',['userServices','notificationServices'])
         }
       });
     } else{
-      app.loading = false;
-      //create an error message
-      app.errorMsg = 'Please ensure form is filled out properly';
-      Notifications.showNotification('error',app.errorMsg,'The Big Whammy');
+      if(pristine){
+        app.loading = false;
+        //create an error message
+        app.errorMsg = 'Please ensure form is filled';
+        Notifications.showNotification('error',app.errorMsg,'The Big Whammy');
+      }
     }
 
   };
