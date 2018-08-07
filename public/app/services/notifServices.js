@@ -26,7 +26,7 @@ angular.module('notificationServices', [])
 
   notificationFactory.showLeagueCode = function(level, message, title){
   toastr.options = {
-    "closeButton": true,
+    "closeButton": false,
     "debug": false,
     "newestOnTop": false,
     "progressBar": false,
@@ -41,8 +41,9 @@ angular.module('notificationServices', [])
     "hideEasing": "linear",
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
+    "tapToismiss": false
   };
-    toastr[level](message, title);
+    toastr[level](message+'<button type="button" class="btn clear">OK</button>', title);
   }
 
 
