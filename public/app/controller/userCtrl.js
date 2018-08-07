@@ -57,6 +57,25 @@ angular.module('userControllers',['userServices','notificationServices'])
       });
   }
 
+  this.checkMobilenumber = function(regData){
+
+      app.checkingContactnum = true;
+      app.contactnumMsg = false;
+      app.contactnumInvalid = false;
+
+      User.checkMobilenumber(app.regData).then(function(data){
+        if(data.data.success) {
+          app.checkingContactnum = false;
+          app.contactnumInvalid = false;
+          app.contactnumMsg = data.data.message;
+        }else{
+          app.checkingContactnum = false;
+          app.contactnumInvalid = true;
+          app.contactnumMsg = data.data.message;
+        }
+      });
+  }
+
   this.checkEmail = function(regData){
     app.checkingEmail = true;
     app.emailMsg = false;

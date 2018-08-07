@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <input ng-class="{ 'is-valid':(regForm.fullname.$valid && !regForm.fullname.$pristine), 'is-invalid':(!regForm.fullname.$valid && !regForm.fullname.$pristine) || (!regForm.name.$valid && regForm.$submitted) }" type="text" class="form-control" placeholder="Full Name" id="firstname" name="fullname" value="" required ng-model="register.regData.fullname" ng-minLength = "3" ng-maxLength="20" ng-pattern="/^(([a-zA-Z]{1,20})+[ ]+([a-zA-Z]{1,20})+)+$/">
+                        <input ng-class="{ 'is-valid':(regForm.fullname.$valid && !regForm.fullname.$pristine), 'is-invalid':(!regForm.fullname.$valid && !regForm.fullname.$pristine) || (!regForm.name.$valid && regForm.$submitted) }" type="text" class="form-control" placeholder="Full Name" id="firstname" name="fullname" value="" required ng-model="register.regData.fullname" ng-minLength = "3" ng-maxLength="120" maxlength="120" ng-pattern="/^(([a-zA-Z]{1,20})+[ ]+([a-zA-Z]{1,20})+)+$/">
                         <p class="help-block" ng-show="(!regForm.fullname.$pristine && regForm.fullname.$error.required) || (regForm.$submitted && regForm.fullname.$error.required)" style="color:red;">This field is required</p>
                         <ul ng-show="(!regForm.fullname.$pristine && regForm.fullname.$error.pattern) || (regForm.fullname.$pristine && regForm.fullname.$error.minlength) || (regForm.fullname.$pristine && regForm.fullname.$error.maxlength)" class="help-block" style="color:red;font-size:1.5vw;">
                           <li>Must have space between first and last name</li>
@@ -35,8 +35,8 @@
                         </ul>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" list="clubs" placeholder="Favourite Club" id="favclub" name="favclub" value="" required ng-model="register.regData.favclub">
-                        <datalist id="clubs">
+                        <input type="text" class="form-control" maxlength="120" placeholder="Favourite Club" id="favclub" name="favclub" value="" required ng-model="register.regData.favclub">
+                        <!--<datalist id="clubs">
                             <option value="Arsenal">
                             <option value="AFC Bournemouth">
                             <option value="Brighton & Hove Albion">
@@ -57,7 +57,7 @@
                             <option value="Watford">
                             <option value="West Ham United">
                             <option value="Wolverhampton Wanderers">
-                        </datalist>
+                        </datalist>-->
                     </div>
                     <!--<div class="form-group">
                         <input type="text" class="form-control" placeholder="Fantasy Team Name" id="fanasyteamname" name="fplteamname" value="" required ng-model="register.regData.fplteamname">
@@ -97,8 +97,11 @@
                       <p ng-show ="!confirmed && !regForm.confirmPassword.$pristine && regForm.firstPassword.$valid">Passwords do not match</p>
                   </div>
 
-                    <div class="form-group">
-                        <input type="tel" id="phone" intl-tel-input class="form-control" placeholder="Contact: Add your country code without the + or - sign followed by your number. Eg: 0091xxxxxxxxxx for an Indian number" title="If your number is 999966xxxx and if it is an Indian number then please write it as 0091999966xxxx" name="contactphone" required ng-model="register.regData.contactphone">
+                    <div class="form-group" style="color:black;">
+                        <input type="tel" ng-blur="register.checkMobilenumber(regData)" ng-class="{ 'is-valid':(regForm.contactphone.$valid && !regForm.contactphone.$pristine && !register.contactnumInvalid), 'is-invalid':(!regForm.contactphone.$valid && !regForm.contactphone.$pristine) || (!regForm.contactphone.$valid && regForm.$submitted) || register.contactnumInvalid}" id="phone" intl-tel-input class="form-control"  name="contactphone" required ng-model="register.regData.contactphone" ng-pattern="/^(\+\d{1,3}[- ]?)?\d{10}$/">
+                        <p class="help-block" ng-show="(!regForm.contactphone.$pristine && regForm.contactphone.$error.required) || (regForm.$submitted && regForm.contactphone.$error.required)" style="color:red;">This field is required</p>
+                        <span ng-show="register.checkingContactnum" class="fa fa-soccer-ball-o " style="color:white;"></span><p style="color:white;" class="help-block" ng-show="register.contactnumMsg && !regForm.contactphone.$error.required && regForm.contactphone.$valid">{{ register.contactnumMsg }}</p>
+
                     </div>
 
                     <div class="form-group">
@@ -108,9 +111,9 @@
 
 
                     <div class="form-group">
-                      <input type="text" class="form-control" list="countries" name="countries" placeholder="Select/Type your country's name" ng-model="register.regData.country"/>
+                      <input type="text" class="form-control" maxlength="120"  name="countries" placeholder="Select/Type your country's name" ng-model="register.regData.country"/>
                       <datalist id="countries">
-                          <option value="Afghanistan">
+                          <!--<option value="Afghanistan">
                           <option value="Albania">
                           <option value="Algeria">
                           <option value="Andorra">
@@ -308,7 +311,7 @@
                                                                           <option value="Zimbabwe">
 
 
-                      </datalist>
+                      </datalist>-->
                     </div>
 
                 </div>
@@ -332,4 +335,8 @@
 
 
     </div>
+    <script>
+    $("#phone").intlTelInput();
+
+    </script>
 </section>

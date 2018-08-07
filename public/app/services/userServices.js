@@ -40,8 +40,12 @@ angular.module('userServices', [])
 
   //User.updateInstaPaymentOptions(instaMojoId)
   userFactory.updateInstaPaymentOptions = function(instaMojoId){
-    console.log("Herer drererer"+instaMojoId);
     return $http.post('/api/rzupdate', {instaMojoId});
   }
+  //User.checkMobilenumber
+  userFactory.checkMobilenumber = function(regData) {
+    return $http.post('/api/checkmobilenumber', regData);
+  }
+  //User.
   return userFactory;
 });

@@ -5,6 +5,7 @@
 <base href="/">
 
   <meta charset ="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="assets/js/angular.js"></script>
   <script src="assets/js/angular-route.js"></script>
   <script src="app/app.js"></script>
@@ -39,9 +40,11 @@
   <link rel="icon" href="../assets/images/logo.png" type="image/png" style="width:3vw;height:3vw">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <link rel="stylesheet" href="../../node_modules/intl-tel-input/build/css/intlTelInput.css">
   <meta name="viewport" content="width=device-width">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script src="../../node_modules/intl-tel-input/build/js/intlTelInput.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   <script src="https://js.instamojo.com/v1/checkout.js"></script>
 
@@ -157,6 +160,7 @@
   <div ng-view>
 
   </div>
+  <input  type="tel" id="phoneji">
 </section>
 <footer class="site-footer ">
     <div class="container">

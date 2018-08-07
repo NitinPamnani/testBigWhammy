@@ -16,7 +16,16 @@ var options = {
   }
 }
 
-var client = nodemailer.createTransport(sgTransport(options));
+//var client = nodemailer.createTransport(sgTransport(options));
+var client = nodemailer.createTransport({
+  host: 'smtpout.asia.secureserver.net',
+  port: 465,
+  secure: true,
+  auth: {
+    user: 'info@thebigwhammy.com',
+    pass: 'TheBigWhammy@123'
+  }
+});
 
 
   //TO ACCESS- http://localhost:<port>/api/users
@@ -42,7 +51,7 @@ var client = nodemailer.createTransport(sgTransport(options));
 
       user.save(function(err){
         if(err){
-
+          console.log(err);
           if(err.errors != null){
             if(err.errors.fullname){
                 res.json({success: false, message: err.errors.fullname.message });
@@ -56,7 +65,7 @@ var client = nodemailer.createTransport(sgTransport(options));
               res.json({success:false, message: err});
             }
           }else if(err){
-
+            console.log(err);
             if(err.code == 11000) {
               if(err.errmsg[61] == "u"){
                 res.json({success:false, message:'Username already taken'});
@@ -70,11 +79,11 @@ var client = nodemailer.createTransport(sgTransport(options));
         }else{
 
           var email = {
-            from: 'The Big Whammy Team, info@bigwhammy.com',
+            from: 'The Big Whammy Team, info@thebigwhammy.com',
             to: user.email,
             subject: 'The Big Whammy account activation link',
-            text: 'Hello' + user.fullname + 'Thank you for registering at thebigwhammy.com. Please click on the following to cpmplete the activation: http://www.thebigwhammy.com/activate/'+user.temporarytoken,
-            html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br> Thank you for registering at thebigwhammy.com. Please click the link below to cpmplete the activation:<br><a href="http://www.thebigwhammy.com/activate/'+user.temporarytoken+'">http://www.thebigwhammy.com/activate/</a>'
+            text: 'Hello' + user.fullname + 'Thank you for registering at thebigwhammy.com. Please click on the following to complete the activation: http://www.thebigwhammy.com/activate/'+user.temporarytoken,
+            html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br> Thank you for registering at thebigwhammy.com. Please click the link below to complete the activation:<br><a href="http://www.thebigwhammy.com/activate/'+user.temporarytoken+'">http://www.thebigwhammy.com/activate/</a>'
           };
 
           client.sendMail(email, function(err, info){
@@ -102,6 +111,20 @@ var client = nodemailer.createTransport(sgTransport(options));
         res.json({ success: false, message: 'That username is already taken' });
       } else{
         res.json({ success: true, message: 'Valid username' });
+      }
+
+    });
+  });
+
+  router.post('/checkmobilenumber', function(req, res){
+    User.findOne({ contactnum: req.body.contactphone}).select('contactnum').exec(function(err,user) {
+      console.log(req.body.contactphone);
+      if (err) throw err;
+
+      if(user) {
+        res.json({ success: false, message: 'That Contactnumber is already registered' });
+      } else{
+        res.json({ success: true, message: 'Valid Contactnumber' });
       }
 
     });
@@ -180,7 +203,7 @@ var client = nodemailer.createTransport(sgTransport(options));
           console.log(err);
         }else{
           var email = {
-            from: 'The Big Whammy Team, info@bigwhammy.com',
+            from: 'The Big Whammy Team, info@thebigwhammy.com',
             to: user.email,
             subject: 'Big Whammy account activation link Request',
             text: 'Hello' + user.fullname + 'You recently requested a new account activation link. Please click on the following to cpmplete the activation: http://www.thebigwhammy.com/activate/'+user.temporarytoken,
@@ -219,7 +242,7 @@ var client = nodemailer.createTransport(sgTransport(options));
               console.log(err);
             }else{
               var email = {
-                from: 'The Big Whammy Team, info@bigwhammy.com',
+                from: 'The Big Whammy Team, info@thebigwhammy.com',
                 to: user.email,
                 subject: 'Account activated',
                 text: 'Hello' + user.fullname + 'Your account has been successfully activated',

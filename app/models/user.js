@@ -64,7 +64,7 @@ var userSchema = new Schema({
   password: {type: String, required: true, validate: passwordValidator, select: false},
   email: {type: String, required: true, lowercase: true, unique:true, validate: emailValidator},
   favclub: {type: String, required: true, lowercase: true},
-  contactnum: {type:Number, required:true, unique:true},
+  contactnum: {type:String, required:true, unique:true},
   refferedby: {type:String, lowercase: true},
   country: {type:String, lowercase: true},
   dob: {type:Number},
