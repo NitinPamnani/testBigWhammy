@@ -82,8 +82,8 @@ var client = nodemailer.createTransport({
             from: 'The Big Whammy Team, info@thebigwhammy.com',
             to: user.email,
             subject: 'The Big Whammy account activation link',
-            text: 'Hello' + user.fullname + 'Thank you for registering at The Big Whammy. Please click on the following to complete the activation: http://www.thebigwhammy.com/activate/'+user.temporarytoken,
-            html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br> Thank you for registering at The Big Whammy. Please click the link below to complete the activation:<br><a href="http://www.thebigwhammy.com/activate/'+user.temporarytoken+'">http://www.thebigwhammy.com/activate/</a>'
+            text: 'Hello' + user.fullname + 'Thank you for registering at The Big Whammy. Please click on the following to complete the activation: http://testbigwhammy.herokuapp.com/activate/'+user.temporarytoken,
+            html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br> Thank you for registering at The Big Whammy. Please click the link below to complete the activation:<br><a href="http://testbigwhammy.herokuapp.comm/activate/'+user.temporarytoken+'">http://testbigwhammy.herokuapp.com/activate/</a>'
           };
 
           client.sendMail(email, function(err, info){
@@ -206,8 +206,8 @@ var client = nodemailer.createTransport({
             from: 'The Big Whammy Team, info@thebigwhammy.com',
             to: user.email,
             subject: 'Big Whammy account activation link Request',
-            text: 'Hello' + user.fullname + 'You recently requested a new account activation link. Please click on the following to cpmplete the activation: http://www.thebigwhammy.com/activate/'+user.temporarytoken,
-            html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br>You recently requested a new account activation link. Please click the link below to complete the activation:<br><a href="http://www.thebigwhammy.com/activate/'+user.temporarytoken+'">http://www.thebigwhammy.com/activate/</a>'
+            text: 'Hello' + user.fullname + 'You recently requested a new account activation link. Please click on the following to cpmplete the activation: http://testbigwhammy.herokuapp.com/activate/'+user.temporarytoken,
+            html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br>You recently requested a new account activation link. Please click the link below to complete the activation:<br><a href="http://testbigwhammy.herokuapp.com/activate/'+user.temporarytoken+'">http://testbigwhammy.herokuapp.com/activate/</a>'
           };
 
           client.sendMail(email, function(err, info){
