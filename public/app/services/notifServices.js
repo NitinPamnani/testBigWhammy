@@ -28,20 +28,20 @@ angular.module('notificationServices', [])
   toastr.options = {
     "closeButton": false,
     "debug": false,
-    "newestOnTop": false,
-    "progressBar": false,
+    "newestOnTop": true,
+    "progressBar": true,
     "positionClass": "toast-top-full-width",
     "preventDuplicates": false,
     "onclick": null,
-    "showDuration": "0",
-    "hideDuration": "0",
-    "timeOut": "0",
-    "extendedTimeOut": "0",
+    "showDuration": "7000",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
     "showEasing": "swing",
     "hideEasing": "linear",
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut",
-    "tapToDismiss": false
+    "tapToDismiss": true
   };
     toastr[level](message, title);
   }

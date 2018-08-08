@@ -15,7 +15,7 @@ angular.module('instamojoCheckout', ['userServices','notificationServices'])
 
          function onPaymentSuccessHandler (response) {
            User.updateInstaPaymentOptions(response.paymentId);
-           Notifications.showLeagueCode('info',"We hope you have a fantastic season. Welcome to the most unique fantasy league in the world. Everything is personal. You slip up, and you're run down. You stay focused, you're bound to win something. All the best!!. Here's your league code 1996969-573960",'Thank you for joining The Big Whammy 2018-2019.');
+           Notifications.showLeagueCode('info',"Your payment was successful. Click on 'ENTER THE BIG WHAMMY LEAGUE' button under CEO's message.",'Thank you for joining The Big Whammy 2018-2019.');
            console.log('Payment Success Response', response);
          }
 
