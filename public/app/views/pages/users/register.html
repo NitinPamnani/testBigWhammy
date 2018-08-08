@@ -98,7 +98,7 @@
                   </div>
 
                     <div class="form-group" style="color:black;">
-                        <input type="tel" placeholder="Phone Number" ng-blur="register.checkMobilenumber(regData)" ng-class="{ 'is-valid':(regForm.contactphone.$valid && !regForm.contactphone.$pristine && !register.contactnumInvalid), 'is-invalid':(!regForm.contactphone.$valid && !regForm.contactphone.$pristine) || (!regForm.contactphone.$valid && regForm.$submitted) || register.contactnumInvalid}" id="phone" intl-tel-input class="form-control"  name="contactphone" required ng-model="register.regData.contactphone" ng-pattern="/^(\+\d{1,3}[- ]?)?\d{10}$/">
+                        <input type="tel" placeholder="Phone Number" ng-blur="register.checkMobilenumber(regData)" ng-class="{ 'is-valid':(regForm.contactphone.$valid && !regForm.contactphone.$pristine && !register.contactnumInvalid), 'is-invalid':(!regForm.contactphone.$valid && !regForm.contactphone.$pristine) || (!regForm.contactphone.$valid && regForm.$submitted) || register.contactnumInvalid}" id="phone" intl-tel-input class="form-control"  name="contactphone" required ng-model="register.regData.contactphone" ng-pattern="/^(\+\d{1,3}[- ]?)?\d{1,100}$/">
                         <p class="help-block" ng-show="(!regForm.contactphone.$pristine && regForm.contactphone.$error.required) || (regForm.$submitted && regForm.contactphone.$error.required)" style="color:red;">This field is required</p>
                         <span ng-show="register.checkingContactnum" class="fa fa-soccer-ball-o " style="color:white;"></span><p style="color:white;" class="help-block" ng-show="register.contactnumMsg && !regForm.contactphone.$error.required && regForm.contactphone.$valid">{{ register.contactnumMsg }}</p>
 
