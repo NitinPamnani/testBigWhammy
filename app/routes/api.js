@@ -104,10 +104,10 @@ var client = nodemailer.createTransport({
 
   router.post('/sendCustomReminderToAllNotPaid', function(req,res){
     console.log("Works");
-    User.find({ haspaid: true }).select('email fullname').exec(function(err, user){
+    User.find({ haspaid: false }).select('email fullname').exec(function(err, user){
       if(err) throw err;
       if(user){
-        console.log(user);
+        res.json(user);
       }
 
     });
