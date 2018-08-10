@@ -83,7 +83,7 @@ var client = nodemailer.createTransport({
             to: user.email,
             subject: 'The Big Whammy account activation link',
             text: 'Hello' + user.fullname + 'Thank you for registering at The Big Whammy. Please click on the following to complete the activation: http://testbigwhammy.herokuapp.com/activate/'+user.temporarytoken,
-            html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br> Thank you for registering at The Big Whammy. Please click the link below to complete the activation:<br><a href="http://testbigwhammy.herokuapp.comm/activate/'+user.temporarytoken+'">http://testbigwhammy.herokuapp.com/activate/</a>'
+            html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br> Thank you for registering at The Big Whammy. Please click the link below to complete the activation:<br><a href="http://testbigwhammy.herokuapp.com/activate/'+user.temporarytoken+'">http://testbigwhammy.herokuapp.com/activate/</a>'
           };
 
           client.sendMail(email, function(err, info){
@@ -100,6 +100,43 @@ var client = nodemailer.createTransport({
         }
       });
     }
+  });
+
+  router.post('/sendCustomReminderToAllNotPaid', function(req,res){
+    console.log("Works");
+    User.find({ haspaid: true }).select('email fullname').exec(function(err, user){
+      if(err) throw err;
+      if(user){
+        console.log(user);
+      }
+
+    });
+  });
+
+  router.post('/sendMails', function(req,res){
+
+
+    console.log(req);
+
+
+        var customMailSubject = req.body.subject;
+        var customMailBody  = req.body.mailBody;
+        var email = {
+          from: 'The Big Whammy Team, info@thebigwhammy.com',
+          to: req.body.emails,
+          subject: customMailSubject,
+          text: customMailBody,
+          html: customMailBody
+        };
+
+        client.sendMail(email, function(err, info){
+            if (err){
+              console.log(err);
+            }
+            else {
+              console.log('Message sent: ' + info.response);
+            }
+        });
   });
 
 
@@ -358,6 +395,12 @@ var client = nodemailer.createTransport({
        }
      });
    });
+
+
+
+
+
+
 
   return router;
 }

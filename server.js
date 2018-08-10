@@ -15,7 +15,8 @@ app.use(express.static(__dirname + '/public'));
 app.use('/api',appRoutes);
 
 
-mongoose.connect('mongodb://tbwsudo:tbwsudo_2@ds163300.mlab.com:63300/tbigwhammy',{ useNewUrlParser: true});
+//mongoose.connect('mongodb://tbwsudo:tbwsudo_2@ds163300.mlab.com:63300/tbigwhammy',{ useNewUrlParser: true});
+mongoose.connect('mongodb://whammy:whammyLove_2@ds155461.mlab.com:55461/thebigwhammy',{ useNewUrlParser: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
