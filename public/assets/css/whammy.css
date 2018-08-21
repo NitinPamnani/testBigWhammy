@@ -964,3 +964,14 @@ section {
 .card:hover .overlay {
   opacity: 1;
 }
+
+.card >img {
+  height: 25vw;
+  width:auto;
+}
+@media (max-width: 768px) {
+  .card >img {
+    height: 60vw;
+    width:auto;
+  }
+}
