@@ -113,6 +113,17 @@ var client = nodemailer.createTransport({
     });
   });
 
+  router.post('/getAllEmails', function(req,res){
+    console.log("Works");
+    User.find().select('email fullname contactnum').exec(function(err, user){
+      if(err) throw err;
+      if(user){
+        res.json(user);
+      }
+
+    });
+  });
+
   router.post('/sendMails', function(req,res){
 
 
