@@ -25,8 +25,8 @@ var app = angular.module('appRoutes',['ngRoute'])
     authenticated: false
   })
 
-  .when('/awards',{
-    templateUrl:'app/views/pages/awards.html'
+  .when('/prizes',{
+    templateUrl:'app/views/pages/prizes.html'
   })
 
   .when('/masterminds',{
