@@ -34,8 +34,8 @@ angular.module('instamojoCheckout', ['userServices','notificationServices'])
            }
          });
 
-       Instamojo.open("https://www.instamojo.com/@thebigwhammy/lf3367ba89a1649349cd13dd9c7196a4d/");
-
+       Instamojo.open("https://test.instamojo.com/@nitinpamnani002/lcc23016dd1ac43bb9a4ab860d1081b64/");
+    
   }
 
 
