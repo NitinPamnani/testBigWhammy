@@ -62,6 +62,11 @@ var app = angular.module('appRoutes',['ngRoute'])
     controllerAs: 'email'
   })
 
+  .when('/leaderboard', {
+    templateUrl: 'app/views/pages/users/leaderboard/leaderboard.html',
+    authenticated: true
+  })
+
   .when('/resend', {
     templateUrl: 'app/views/pages/users/activation/resend.html',
     controller:'resendCtrl',
