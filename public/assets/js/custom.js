@@ -18,8 +18,11 @@ $(document).ready(function(){
 
     });
   }else{
-    
+
   }
+  $.getJSON("https://fantasy.premierleague.com/drf/leagues-classic-standings/573960?phase=1&le-page=2&ls-page=2", function (data) {
+       console.log(data);
+   });
 
 $(window).resize(checkWidth);
 });
