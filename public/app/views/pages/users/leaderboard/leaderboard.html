@@ -14,14 +14,17 @@
 				  <div class="col-md-1"></div>
 				  <div class="col-md-6">
 				   <div class="dropdown">
-             <button class="btn btn-primary " onclick="updateLeaderBoardTable(1,null)" type="button" data-toggle="dropdownPageSelect" id="previousPull"><strong> <<-PREVIOUS </strong><span class="caret"></span></button>
-           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="phaseSelect">SelectPhase
+
+           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="GameWeekSelect">Select Game Week
 						<span class="caret"></span></button>
-            <button class="btn btn-primary " onclick="updateLeaderBoardTable(2,null)" type="button" data-toggle="dropdownPageSelect" id="nextPull"><strong> NEXT->></strong><span class="caret"></span></button>
+
             <button class="hidden" style="visibility:hidden;" id="pageSelect">1</button>
 							<ul class="dropdown-menu phase-menu">
-								<li><a onclick="updateLeaderBoardTable(null,'Overall')"  data-value="overall">Overall</a></li>
-                <li><a onclick="updateLeaderBoardTable(null,'August')" data-value="august">August</a></li>
+								<li><a onclick="updateLeaderBoardTable(1)"  data-value="1">GW1</a></li>
+                <li><a onclick="updateLeaderBoardTable(2)" data-value="2">GW2</a></li>
+                <li><a onclick="updateLeaderBoardTable(3)" data-value="3">GW3</a></li>
+                <li><a onclick="updateLeaderBoardTable(4)" data-value="4">GW4</a></li>
+                <li><a onclick="updateLeaderBoardTable(5)" data-value="5">GW5</a></li>
 							</ul>
 				    </div>
 
@@ -45,54 +48,85 @@
 
 <script>
 $(document).ready(function(){
-  updateLeaderBoardTable(1,'Overall');
+  updateLeaderBoardTable(1);
 });
 
-function updateLeaderBoardTable(gameweek, btnValue) {
+function sortTable(tableId, valueToCompare, elementTypeToCompare){
+	var table,rows,switching, i, x, y, shouldSwitch;
+	table = document.getElementById(tableId);
+  //table = $("#"+tableId);
 
-$("#footballLoader").show();
+	switching = true;
+
+	while(switching){
+		switching = false;
+		rows = table.getElementsByTagName("TR");
+    // = table.find("tr");
+		for(i = 1; i < (rows.length - 1); i++) {
+			shouldSwitch = false;
+			x = rows[i].getElementsByTagName(elementTypeToCompare)[valueToCompare];
+			y = rows[i + 1].getElementsByTagName(elementTypeToCompare)[valueToCompare];
+
+
+			var rankAelement = rows[i].getElementsByTagName(elementTypeToCompare)[0];
+            var rankBelement = rows[i+1].getElementsByTagName(elementTypeToCompare)[0];
+
+
+			var rankA = rankAelement.innerHTML;
+			var temp = rankA;
+			var rankB = rankBelement.innerHTML;
+
+
+			if(parseInt(x.innerHTML) < parseInt(y.innerHTML)){
+                rankA = rankB;
+                rankB = temp;
+                rankAelement.innerHTML = rankA;
+                rankBelement.innerHTML = rankB;
+					shouldSwitch = true;
+				break;
+			}
+		}
+		if (shouldSwitch){
+
+			rows[i].parentNode.insertBefore(rows[i+1], rows[i]);
+			switching = true;
+		}
+
+	}
+
+}
+
+
+function updateLeaderBoardTable(gameweek) {
+
+
 
 if(gameweek){
   page = gameweek;
   $("#pageSelect").html(gameweek);
+  $("#GameWeekSelect").html("GameWeek:"+gameweek);
 }
 
-
- if(btnValue){
-   $('#phaseSelect').html(btnValue);
- }
- var month = $('#phaseSelect').html();
 var page = $('#pageSelect').html();
-var phase;
-if(page === "1"){
-  $('#previousPull').hide();
-  $('#nextPull').show();
-}else if(page === "2"){
-  $('#previousPull').show();
-  $('#nextPull').hide();
-}
-if(month.toUpperCase() === "OVERALL"){
-  phase = 1;
-}else if(month.toUpperCase() === "AUGUST"){
-  phase = 2;
-}
 
-  $.getJSON("https://cors-anywhere.herokuapp.com/"+"https://fantasy.premierleague.com/drf/leagues-classic-standings/573960?phase="+phase+"&le-page="+page+"&ls-page="+page, function (data) {
-    //console.log(data.standings.results);
-    $("#footballLoader").hide();
+$.getJSON("app/views/pages/users/leaderboard/tableOutputGameWeekStats.json", function (data) {
+
+
     var htmlData = "<div class=\"table-responsive\"><table style='text-align:center;' class=\"table table-hover table-responsive\" id=\"leaderboardTable\">\n" +
                 "                        <tr style='background-color: lightgrey;'>\n" +
                 "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"Rank\">RANK </th>\n" +
                 "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"Team\">TEAM</th>\n" +
                 "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"Manager\">MANAGER</th>\n" +
-                "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"Total\">TOTAL</th>\n" +
+                "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"Actual Game Week Points\">Game Week Points</th>\n" +
+                "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"Number of transfers\">Number of transfers</th>\n" +
+                "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"Points deducted due to transfers\">Transfer Cost</th>\n" +
                 "                        </tr>\n" +
                 "                        \n";
 
             //var gameWeekPoints = 0;
             //var individualGameWeekPoints = 0;
             //var rank = 1;
-            $.each(data.standings.results, function (setNumber, setDetails) {
+            /*$.each(data.standings.results, function (setNumber, setDetails) {
                 //console.log(userName);
                 //console.log("Rank for event"+value.event+":"+jsn[value.event][userName]);
 
@@ -100,14 +134,38 @@ if(month.toUpperCase() === "OVERALL"){
                 //gameWeekPoints += individualGameWeekPoints;
                 htmlData += "<tr><td><strong>" + setDetails["rank_sort"] + "</strong></td>" + "<td><strong>" + setDetails["entry_name"] + "</strong></td>" + "<td><strong>" + setDetails["player_name"] + "</strong></td>" + "<td><strong>" + setDetails["total"] + "</strong></td>";
 
+            });*/
+
+            $.each(data, function(gw, playeridMap){
+              if(gw == gameweek){
+                var rank =1;
+                $.each(playeridMap, function(playerid, playerDetails){
+
+                  //$.each(playerDetails, function(playerDetailValue, Valuevalue){
+                    
+                    htmlData += "<tr><td>"+ rank + "</td>" + "<td>" + playerDetails["teamname"] + "</td>" + "<td>" + playerDetails["playername"] + "</td>" + "<td>" + playerDetails["gwpoints"] + "</td>" + "<td>" + playerDetails["transfers"] +"</td>" + "<td>" + playerDetails["transfer_cost"] + "</td>";
+                    rank++;
+                //});
+              });
+              }
+
             });
             htmlData += "</table>" + "</div>";
             $('#leaderboardContainer').html(htmlData);
 
+            $(document).ready(function(){
+              sortTable("leaderboardTable",3,"TD");
+            });
+
+
+
 
         });
-        $("#footballLoader").hide();
+
+
+        //$("#footballLoader").hide();
 
 
    };
+
 </script>
