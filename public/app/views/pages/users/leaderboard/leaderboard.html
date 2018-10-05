@@ -25,6 +25,8 @@
                 <li><a onclick="updateLeaderBoardTable(3)" data-value="3">GW3</a></li>
                 <li><a onclick="updateLeaderBoardTable(4)" data-value="4">GW4</a></li>
                 <li><a onclick="updateLeaderBoardTable(5)" data-value="5">GW5</a></li>
+                <li><a onclick="updateLeaderBoardTable(6)" data-value="6">GW6</a></li>
+                <li><a onclick="updateLeaderBoardTable(7)" data-value="7">GW7</a></li>
 							</ul>
 				    </div>
 
@@ -142,7 +144,7 @@ $.getJSON("app/views/pages/users/leaderboard/tableOutputGameWeekStats.json", fun
                 $.each(playeridMap, function(playerid, playerDetails){
 
                   //$.each(playerDetails, function(playerDetailValue, Valuevalue){
-                    
+
                     htmlData += "<tr><td>"+ rank + "</td>" + "<td>" + playerDetails["teamname"] + "</td>" + "<td>" + playerDetails["playername"] + "</td>" + "<td>" + playerDetails["gwpoints"] + "</td>" + "<td>" + playerDetails["transfers"] +"</td>" + "<td>" + playerDetails["transfer_cost"] + "</td>";
                     rank++;
                 //});
