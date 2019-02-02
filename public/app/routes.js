@@ -56,6 +56,11 @@ var app = angular.module('appRoutes',['ngRoute'])
 
   })
 
+  .when('/liveawards', {
+    templateUrl:'app/views/pages/liveawards.html',
+    authenticated: true
+  })
+
   .when('/activate/:token', {
     templateUrl: 'app/views/pages/users/activation/activate.html',
     controller: 'emailCtrl',

@@ -42,6 +42,9 @@
                 <li><a onclick="updateLeaderBoardTable(20)" data-value="20">GW20</a></li>
                 <li><a onclick="updateLeaderBoardTable(21)" data-value="21">GW21</a></li>
                 <li><a onclick="updateLeaderBoardTable(22)" data-value="22">GW22</a></li>
+                <li><a onclick="updateLeaderBoardTable(23)" data-value="23">GW23</a></li>
+                <li><a onclick="updateLeaderBoardTable(24)" data-value="24">GW24</a></li>
+                <li><a onclick="updateLeaderBoardTable(25)" data-value="25">GW25</a></li>
 							</ul>
 				    </div>
 
@@ -67,6 +70,27 @@
 $(document).ready(function(){
   updateLeaderBoardTable(1);
 });
+
+function adjustRanks(tableId, valueToCompare, elementTypeToCompare){
+  console.log("Adjusting ranks");
+  var table, rows, processing,rank,prev,next,x,y;
+  rank = 1;
+  table = document.getElementById(tableId);
+    rows = table.getElementsByTagName("TR");
+    prev = rows[1].getElementsByTagName(elementTypeToCompare)[valueToCompare].innerHTML;
+    next = rows[1].getElementsByTagName(elementTypeToCompare)[valueToCompare].innerHTML;
+    for(i=2; i <= (rows.length - 1); i++) {
+      x = rows[i].getElementsByTagName(elementTypeToCompare)[valueToCompare].innerHTML;
+      next = x;
+      var xRank = rows[i].getElementsByTagName(elementTypeToCompare)[0];
+      if(parseInt(prev) != parseInt(next)){
+        rank++;
+      }
+      prev = next;
+      xRank.innerHTML = rank;
+    }
+
+}
 
 function sortTable(tableId, valueToCompare, elementTypeToCompare){
 	var table,rows,switching, i, x, y, shouldSwitch;
@@ -159,7 +183,7 @@ $.getJSON("app/views/pages/users/leaderboard/tableOutputGameWeekStats.json", fun
                 $.each(playeridMap, function(playerid, playerDetails){
 
                   //$.each(playerDetails, function(playerDetailValue, Valuevalue){
-
+                    var next = playerDetails["gwpoints"];
                     htmlData += "<tr><td>"+ rank + "</td>" + "<td>" + playerDetails["teamname"] + "</td>" + "<td>" + playerDetails["playername"] + "</td>" + "<td>" + playerDetails["gwpoints"] + "</td>" + "<td>" + playerDetails["transfers"] +"</td>" + "<td>" + playerDetails["transfer_cost"] + "</td>";
                     rank++;
                 //});
@@ -172,6 +196,7 @@ $.getJSON("app/views/pages/users/leaderboard/tableOutputGameWeekStats.json", fun
 
             $(document).ready(function(){
               sortTable("leaderboardTable",3,"TD");
+              adjustRanks("leaderboardTable",3,"TD");
             });
 
 
