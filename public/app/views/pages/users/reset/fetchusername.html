@@ -1,0 +1,48 @@
+<section id="fetchusernamesection" class="section fetchusername" data-aos="fade-up"  data-aos-duration="1000">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="top-left-watermark">
+                    <p>Forgot Username</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <form ng-submit="username.sendUsername(userData, forgotusernameform.$valid);" id="fetchusername" name="forgotusernameform" novalidate>
+                <div class="row">
+                    <div class="col-sm-6 offset-sm-3">
+                        <div class="form-group">
+                            <input type="text" ng-disabled="username.disabled" class="form-control" placeholder="Enter your registered email" id="email" name="email" value="" required ng-model="username.userData.email">
+                        </div>
+
+                        <div class="text-center mt20">
+                            <button type="submit" class="btn btn-black"  name="login" ng-disabled="username.disabled">SUBMIT</button>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+
+            <br>
+
+            <div class="jumbotron text-center" style="background-color:transparent;" ng-show="username.loading">
+                <span class="fa fa-soccer-ball-o spin"></span>
+                <p>Loading...</p>
+            </div>
+
+            <div class="row show-hide-message" ng-show="username.successMsg">
+                <div class="col-sm-6 offset-sm-3">
+                    <div class="alert alert-success" style="text-align: center;">{{ username.successMsg }}</div>
+                </div>
+            </div>
+
+            <div class="row show-hide-message" ng-show="username.errorMsg">
+                <div class="col-sm-6 offset-sm-3">
+                    <div class="alert alert-danger" style="text-align: center;">{{ username.errorMsg }}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

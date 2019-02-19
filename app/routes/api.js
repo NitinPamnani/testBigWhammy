@@ -267,6 +267,134 @@ var client = nodemailer.createTransport({
 
     });
   });
+
+  router.get('/fetchusername/:email', function(req, res){
+    User.findOne({ email: req.params.email }).select('email fullname username').exec(function(err, user) {
+      if(err) {
+        res.json({ success: false, message: err});
+      }else {
+        if(!req.params.email) {
+          res.json({ success: false, message: 'no e-mail was provided' });
+        }else {
+            if (!user) {
+                res.json({success: false, message: 'Email was not found'});
+            } else {
+                var email = {
+                    from: 'The Big Whammy Team, info@thebigwhammy.com',
+                    to: user.email,
+                    subject: 'Requesting Username',
+                    text: 'Hello' + user.fullname + 'Your request to fetch username succeeded',
+                    html: 'Hello <strong>' + user.fullname + '</strong>,Below is the username with which you registered<br><br>Username: <strong>' + user.username + '</strong><br><br>'
+                };
+
+                client.sendMail(email, function (err, info) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+                        console.log('Message sent: ' + info.response);
+                    }
+                });
+                res.json({success: true, message: 'Username has been sent to e-mail'});
+            }
+        }
+      }
+    });
+  });
+
+
+  router.put('/resetpassword', function(req, res){
+    User.findOne({ username: req.body.username }).select('username active email fullname resettoken').exec(function(err, user){
+        if(err) throw err;
+        if(!user) {
+          res.json({ success: false, message: 'Username not founnd' });
+        } else if (!user.active) {
+          res.json({success: false, message: 'Account has not yet been activated'});
+        } else {
+            user.resettoken = jwt.sign({fullname:user.fullname, username: user.username, email: user.email}, secret, {expiresIn: '24h' });
+            user.save(function(err) {
+              if (err) {
+                res.json({ success: false, message: err});
+              } else {
+
+                  var email = {
+                      from: 'The Big Whammy Team, info@thebigwhammy.com',
+                      to: user.email,
+                      subject: 'The Big Whammy account reset password request',
+                      text: 'Hello' + user.fullname + 'You recently requested a password reset for your account associated with The Big Whammy. Please click on the following to complete the process: http://www.thebigwhammy.com/reset/'+user.resettoken,
+                      html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br> You recently requested a password reset for your account associated with The Big Whammy. Please click on the following to complete the process:<br><a href="http://www.thebigwhammy.com/reset/'+user.resettoken+'">http://www.thebigwhammy.com/reset/</a>'
+                  };
+
+                  client.sendMail(email, function(err, info){
+                      if (err){
+                          console.log(err);
+                      }
+                      else {
+                          console.log('Message sent: ' + info.response);
+                      }
+                  });
+                res.json({ success: true, message: 'Please check your email for password reset link'});
+              }
+            });
+        }
+      });
+  });
+
+  router.get('/resetpassword/:token', function(req, res){
+    User.findOne({ resettoken: req.params.token }).select().exec(function(err,user){
+      if(err) throw err;
+      var token = req.params.token;
+        //verify token
+        jwt.verify(token, secret, function(err, decoded){
+            if(err){
+                res.json({success:false, message: 'Password reset link has expired'});
+            }else{
+                if(!user){
+                  res.json({ success:false, message:'Passsword link has expired'});
+                }else {
+                    res.json({success: true, user: user});
+                }
+            }
+        });
+    });
+  });
+
+  router.put('/savepassword', function(req, res) {
+    User.findOne({ username: req.body.username }).select('username fullname password resettoken email').exec(function(err, user){
+    if(err) throw err;
+    if(req.body.password == null || req.body.password =='') {
+        res.json({ success: false, message:'Password not provided'});
+    } else {
+        user.password = req.body.password;
+        user.resettoken = false;
+        user.save(function(err) {
+            if(err) {
+                res.json({success: false, message: err});
+            }else {
+                var email = {
+                    from: 'The Big Whammy Team, info@thebigwhammy.com',
+                    to: user.email,
+                    subject: 'The Big Whammy account reset password request',
+                    text: 'Hello' + user.fullname + 'This email is to notify you that your password was recently reset at The Big Whammy',
+                    html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br> This email is to notify you that your password was recently reset at The Big Whammy'
+                };
+
+                client.sendMail(email, function(err, info){
+                    if (err){
+                        console.log(err);
+                    }
+                    else {
+                        console.log('Message sent: ' + info.response);
+                    }
+                });
+                res.json({ success: true, message: 'Password has been reset'});
+            }
+        });
+      }
+    });
+  });
+
+  //Middleware
   router.use(function(req, res, next){
 
     var token = req.body.token || req.body.query || req.headers['x-access-token'];
