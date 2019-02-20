@@ -1,3 +1,4 @@
+<section id="liveawards" class="section registration" data-aos="fade-up"  data-aos-duration="1000">
 <div class="col-sm-4">
 
 
@@ -6,10 +7,99 @@
                           <canvas id="ironman-award" class="card-img-top" width="360" height="235"></canvas>
 
                           <div class="card-block">
-                              <h4 class="card-title"><a id="ironmanmodalopener">Iron Man</a></h4>
+                              <h4 class="card-title"><a id="ironmanmodalopener" data-toggle="modal" data-target="#exampleModalCenter">Iron Man</a></h4>
                               <p class="card-text">Click on "Iron Man" for more details</p>
 
                           </div>
                       </div>
 
-                      </div>
+</div>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="color:black;" id="exampleModalCenterTitle">Iron Man Standings</h5>
+            </div>
+            <div class="modal-body">
+                <div id = "ironManContainer"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+
+<script>
+    $(document).ready(function(){
+        populateIronManData();
+    });
+
+    function populateIronManData(){
+        $.getJSON("app/views/pages/users/leaderboard/tableOutputIronMan.json", function (data) {
+
+
+
+            var htmlData = "<div class=\"table-responsive\"><table style='text-align:center;' class=\"table table-dark table-hover table-responsive\" id=\"IronManTable\">\n" +
+                "                        <tr style='background-color: grey;'>\n" +
+                "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"IRON MAN RANK\">IRON MAN RANK</th>\n" +
+                "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"MANAGER\">MANAGER </th>\n" +
+                "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"GW 19 RANK\">GAME WEEK 19 RANK</th>\n" +
+                "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"CURRENT RANK\">CURRENT RANK</th>\n" +
+                "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"JUMP FROM GW 19\">JUMP FROM GW 19</th>\n" +
+                "                        </tr>\n" +
+                "                        \n";
+
+            $.each(data, function(playerName, playerDetails){
+
+               htmlData += "<tr><td>"+ playerDetails["ironManRank"] + "</td>" + "<td>" + playerName + "</td>" + "<td>" + playerDetails["gw19rank"] + "</td>" + "<td>" + playerDetails["currentrank"] + "</td>" + "<td>" + playerDetails["jumpFromGw19"] +"</td>" ;
+
+            });
+            htmlData += "</table>" + "</div>";
+            $('#ironManContainer').html(htmlData);
+
+
+            sortTable("IronManTable",0,"TD");
+
+
+
+        });
+
+    }
+
+    function sortTable(tableId, valueToCompare, elementTypeToCompare){
+        var table,rows,switching, i, x, y, shouldSwitch;
+        table = document.getElementById(tableId);
+        //table = $("#"+tableId);
+
+        switching = true;
+
+        while(switching){
+            switching = false;
+            rows = table.getElementsByTagName("TR");
+            // = table.find("tr");
+            for(i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName(elementTypeToCompare)[valueToCompare];
+                y = rows[i + 1].getElementsByTagName(elementTypeToCompare)[valueToCompare];
+
+
+                if(parseInt(x.innerHTML) > parseInt(y.innerHTML)){
+
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+            if (shouldSwitch){
+
+                rows[i].parentNode.insertBefore(rows[i+1], rows[i]);
+                switching = true;
+            }
+
+        }
+
+    }
+
+</script>

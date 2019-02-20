@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb106927-d8b2-40c6-857a-3cd77fc86127" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/whammy.css" afterPath="$PROJECT_DIR$/public/assets/css/whammy.css" />
+      <change beforePath="$PROJECT_DIR$/public/app/views/pages/liveawards.html" afterPath="$PROJECT_DIR$/public/app/views/pages/liveawards.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +17,8 @@
       <file leaf-file-name="leaderboard.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/views/pages/users/leaderboard/leaderboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="55">
-              <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+            <state relative-caret-position="-943">
+              <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="138" selection-end-column="1" />
               <folding>
                 <element signature="n#style#0;n#button#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <marker date="1550685945718" expanded="true" signature="5944:5962" ph="..." />
@@ -35,6 +34,35 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="liveawards.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/app/views/pages/liveawards.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="587">
+              <caret line="88" column="42" lean-forward="false" selection-start-line="88" selection-start-column="42" selection-end-line="88" selection-end-column="42" />
+              <folding>
+                <element signature="n#style#0;n#h5#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#0;n#!!top" expanded="true" />
+                <marker date="1550692434821" expanded="true" signature="1726:1744" ph="..." />
+                <marker date="1550692434821" expanded="true" signature="1880:1903" ph="..." />
+                <marker date="1550692434821" expanded="true" signature="1963:1982" ph="..." />
+                <marker date="1550692434821" expanded="true" signature="2108:2127" ph="..." />
+                <marker date="1550692434821" expanded="true" signature="2242:2261" ph="..." />
+                <marker date="1550692434821" expanded="true" signature="2388:2407" ph="..." />
+                <marker date="1550692434821" expanded="true" signature="2531:2550" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tableOutputIronMan.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/views/pages/users/leaderboard/tableOutputIronMan.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="masterminds.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/views/pages/masterminds.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -45,11 +73,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="whammy.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="whammy.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/whammy.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="822" column="19" lean-forward="false" selection-start-line="822" selection-start-column="19" selection-end-line="822" selection-end-column="19" />
+            <state relative-caret-position="356">
+              <caret line="815" column="36" lean-forward="true" selection-start-line="815" selection-start-column="36" selection-end-line="815" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -78,6 +106,7 @@
     <findStrings>
       <find>username</find>
       <find>register</find>
+      <find>m</find>
     </findStrings>
     <replaceStrings>
       <replace>password</replace>
@@ -106,6 +135,7 @@
         <option value="$PROJECT_DIR$/app/routes/api.js" />
         <option value="$PROJECT_DIR$/public/app/views/pages/users/leaderboard/leaderboard.html" />
         <option value="$PROJECT_DIR$/public/assets/css/whammy.css" />
+        <option value="$PROJECT_DIR$/public/app/views/pages/liveawards.html" />
       </list>
     </option>
   </component>
@@ -128,9 +158,10 @@
     <handled-path value="$PROJECT_DIR$/public/node_modules" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="696" />
     <option name="y" value="23" />
-    <option name="width" value="1680" />
+    <option name="width" value="984" />
     <option name="height" value="976" />
   </component>
   <component name="ProjectView">
@@ -155,17 +186,6 @@
             <path>
               <item name="newproject" type="b2602c69:ProjectViewProjectNode" />
               <item name="newproject" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newproject" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newproject" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="newproject" type="b2602c69:ProjectViewProjectNode" />
@@ -197,14 +217,26 @@
               <item name="newproject" type="b2602c69:ProjectViewProjectNode" />
               <item name="newproject" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newproject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newproject" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+              <item name="leaderboard" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="newproject" type="b2602c69:ProjectViewProjectNode" />
               <item name="newproject" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="newproject" type="b2602c69:ProjectViewProjectNode" />
@@ -232,6 +264,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/app/views/pages/users/leaderboard" />
+      <recent name="$PROJECT_DIR$/public/assets/js" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -344,15 +382,15 @@
       <workItem from="1550425178187" duration="1696000" />
       <workItem from="1550495427814" duration="820000" />
       <workItem from="1550513185102" duration="19004000" />
-      <workItem from="1550683520094" duration="1865000" />
+      <workItem from="1550683520094" duration="6758000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23385000" />
+    <option name="totallyTimeSpent" value="28278000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="976" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -375,7 +413,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25274727" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14529915" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Hybris Console [Experimental]" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -731,14 +769,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="183" column="97" lean-forward="false" selection-start-line="183" selection-start-column="97" selection-end-line="183" selection-end-column="97" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/views/pages/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -747,10 +777,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/views/pages/liveawards.html">
+    <entry file="file://$PROJECT_DIR$/public/app/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="446">
+          <caret line="183" column="97" lean-forward="false" selection-start-line="183" selection-start-column="97" selection-end-line="183" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/whammy.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="815" column="36" lean-forward="true" selection-start-line="815" selection-start-column="36" selection-end-line="815" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -763,10 +801,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/tableOutputIronMan.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/views/pages/users/leaderboard/tableOutputIronMan.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/views/pages/users/leaderboard/leaderboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+        <state relative-caret-position="-943">
+          <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="138" selection-end-column="1" />
           <folding>
             <element signature="n#style#0;n#button#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <marker date="1550685945718" expanded="true" signature="5944:5962" ph="..." />
@@ -781,11 +835,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/whammy.css">
+    <entry file="file://$PROJECT_DIR$/public/app/views/pages/liveawards.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="822" column="19" lean-forward="false" selection-start-line="822" selection-start-column="19" selection-end-line="822" selection-end-column="19" />
-          <folding />
+        <state relative-caret-position="587">
+          <caret line="88" column="42" lean-forward="false" selection-start-line="88" selection-start-column="42" selection-end-line="88" selection-end-column="42" />
+          <folding>
+            <element signature="n#style#0;n#h5#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#0;n#!!top" expanded="true" />
+            <marker date="1550692434821" expanded="true" signature="1726:1744" ph="..." />
+            <marker date="1550692434821" expanded="true" signature="1880:1903" ph="..." />
+            <marker date="1550692434821" expanded="true" signature="1963:1982" ph="..." />
+            <marker date="1550692434821" expanded="true" signature="2108:2127" ph="..." />
+            <marker date="1550692434821" expanded="true" signature="2242:2261" ph="..." />
+            <marker date="1550692434821" expanded="true" signature="2388:2407" ph="..." />
+            <marker date="1550692434821" expanded="true" signature="2531:2550" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
