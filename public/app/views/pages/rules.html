@@ -550,16 +550,16 @@
       if($('#flipbutton').html() == "CLICK FOR RULES") {
           $('#todisplay').animate({
               'opacity' : 0
-          }, 1000, function(){
-              $(this).html($("#prizeRules").html()).animate({'opacity': 1}, 1000);
+          }, 100, function(){
+              $(this).html($("#prizeRules").html()).animate({'opacity': 1}, 100);
               $('#flipbutton').html("CLICK FOR FAQ");
           });
 
       }else {
           $('#todisplay').animate({
               'opacity' : 0
-          }, 1000, function(){
-              $(this).html($("#faqs").html()).animate({'opacity': 1}, 1000);
+          }, 100, function(){
+              $(this).html($("#faqs").html()).animate({'opacity': 1}, 100);
               $('#flipbutton').html("CLICK FOR RULES");
           });
 
