@@ -19,6 +19,10 @@ body {
   position: relative;
   -webkit-font-smoothing: antialiased;
 }
+
+.clickable {
+  cursor: pointer;
+}
 a {
   color: #000;
 }
