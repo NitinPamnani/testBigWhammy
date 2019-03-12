@@ -7,3 +7,5 @@ L
 public/assets/css/whammy.css,d/9/d9561aefe864d6a9f777dfd552d70d1ad40cad00
 p
 @public/app/views/pages/users/leaderboard/tableOutputIronMan.json,8/f/8fbb265ee6ba089ede94db906d2433784c257724
+Q
+!public/app/controller/mainCtrl.js,8/6/86af396a80a1285af4ce0cd6384edfdf41cd17af

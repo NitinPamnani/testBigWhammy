@@ -20,7 +20,8 @@
 
             <button class="hidden" style="visibility:hidden;" id="pageSelect">1</button>
 							<ul class="dropdown-menu phase-menu">
-								<li><a onclick="updateLeaderBoardTable(1)"  data-value="1">GW1</a></li>
+                                <li><a onclick="updateOverAllLeaderBoardTable()"  data-value="Overall">OVERALL LEADERBOARD</a></li>
+                <li><a onclick="updateLeaderBoardTable(1)"  data-value="1">GW1</a></li>
                 <li><a onclick="updateLeaderBoardTable(2)" data-value="2">GW2</a></li>
                 <li><a onclick="updateLeaderBoardTable(3)" data-value="3">GW3</a></li>
                 <li><a onclick="updateLeaderBoardTable(4)" data-value="4">GW4</a></li>
@@ -56,7 +57,7 @@
 				  </div>
 				  <br>
                  <div class="row">
-            <div id="leaderboardContainer" class="col-md-12"></div>
+            <div id="leaderboardContainer" ></div>
 
                 </div>
               </div><!-- /.col-sm-10 -->
@@ -140,6 +141,35 @@ function sortTable(tableId, valueToCompare, elementTypeToCompare){
 
 }
 
+function updateOverAllLeaderBoardTable() {
+    $("#pageSelect").html("Overall");
+    $("#GameWeekSelect").html("Overall");
+
+    $.getJSON("app/views/pages/users/leaderboard/tableOutputOverall.json", function(data){
+        var htmlData = "<div class=\"table-responsive\"><table style='text-align:center;' class=\"table table-dark table-hover table-responsive\" id=\"leaderboardTable\">\n" +
+            "                        <tr style='background-color: grey;'>\n" +
+            "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"Rank\">RANK </th>\n" +
+            "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"Team\">TEAM</th>\n" +
+            "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"Manager\">MANAGER</th>\n" +
+            "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"Overall Score\">OVERALL SCORE</th>\n" +
+            "                        </tr>\n" +
+            "                        \n";
+
+        $.each(data['overall'], function(playerid,  playeridDetails){
+
+           var rank =1;
+           htmlData += "<tr><td>"+ rank + "</td>" + "<td>" + playeridDetails["teamname"] + "</td>" + "<td>" + playeridDetails["playername"] + "</td>" + "<td>" + playeridDetails["overAllPoints"];
+           rank++;
+        });
+        htmlData += "</table>" + "</div>";
+        $('#leaderboardContainer').html(htmlData);
+
+        $(document).ready(function(){
+            sortTable("leaderboardTable",3,"TD");
+            adjustRanks("leaderboardTable",3,"TD");
+        });
+    });
+}
 
 function updateLeaderBoardTable(gameweek) {
 
