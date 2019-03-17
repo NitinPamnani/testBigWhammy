@@ -1,5 +1,7 @@
 <section id="liveawards" class="section registration" data-aos="fade-up"  data-aos-duration="1000">
-<div class="col-sm-4">
+<div class="container">
+    <div class="row">
+    <div class="col-sm-4">
 
 
                       <div class="card" style="width: 20rem;">
@@ -15,7 +17,20 @@
 
 </div>
 
+    <div class="col-sm-4">
+        <div class="card" style="width: 20rem;">
+            <canvas id="knockout-cup" class="card-img-top" width="360" height="235"></canvas>
 
+            <div class="card-block">
+                <h4 class="card-title"><a id="knockoutmodalopener" data-toggle="modal" data-target="#knockoutModalOpener">Knock Out Cup</a></h4>
+                <p class="card-text">Click on "Knock Out Cup" for more details</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</div>
 
 <div class=" modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -32,12 +47,82 @@
     </div>
 </div>
 
+
+    <div class=" modal fade" id="knockoutModalOpener" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="color:black;" id=knockoutModalOpenerCenterTitle">Knock Out Cup Standings</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="dropdown">
+
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="RoundSelect">Select Round
+                            <span class="caret"></span></button>
+
+                        <button class="hidden" style="visibility:hidden;" id="pageSelect">1</button>
+                        <ul class="dropdown-menu phase-menu">
+                            <li><a onclick="updateKnockoutTable(2)" data-value="2">ROUND 2</a></li>
+                            <li><a onclick="updateKnockoutTable(3)" data-value="3">ROUND 3</a></li>
+                            <li><a onclick="updateKnockoutTable(4)" data-value="4">ROUND 4</a></li>
+                        </ul>
+                    </div>
+                    <div id = "knockoutCupContainer">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <script>
     $(document).ready(function(){
         populateIronManData();
+        updateKnockoutTable(4);
     });
+
+    function updateKnockoutTable(round){
+
+        if(round) {
+            $("#RoundSelect").html("Round:"+round);
+
+        }
+
+        $.getJSON("app/views/pages/users/leaderboard/tableOutputKnockout.json", function(data){
+
+
+
+
+
+            var htmlData = "<div class=\"table-responsive\"><table style='text-align:center;' class=\"table table-dark table-hover table-responsive table-borderless\" id=\"KnockoutTable\">\n" +
+                "                        <tr style='background-color: grey;'>\n" +
+                "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"MANAGER 1\">PLAYER 1<br><sub>TEAMNAME</sub></th>\n" +
+
+                "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"ROUND SCORE\">SCORE</th>\n" +
+
+                "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"VERSUS\">v/s</th>\n" +
+
+                "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"MANAGER 2\">PLAYER 2<br><sub>TEAMNAME</sub></th>\n" +
+
+                "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"ROUND SCORE\">SCORE</th>\n" +
+                "                        </tr>\n" +
+                "                        \n";
+
+
+            $.each(data['round'+round], function(entry, entryDetails){
+
+                htmlData += "<tr><td>"+ entryDetails["fplayerame"] + "<br><sub>"+entryDetails["fteamname"]+ "</sub>"+"</td>" + "<td>" + entryDetails["fscore"] + "</td>" + "<td>" + "" + "</td>" +"<td>" + entryDetails["splayerame"] +  "<br><sub>"+ entryDetails["steamname"] + "</sub>" +"</td>" + "<td>" + entryDetails["sscore"] +"</td>" ;
+
+            });
+            htmlData += "</table>" + "</div>";
+            $('#knockoutCupContainer').html(htmlData);
+
+
+        });
+    }
 
     function populateIronManData(){
         $.getJSON("app/views/pages/users/leaderboard/tableOutputIronMan.json", function (data) {
