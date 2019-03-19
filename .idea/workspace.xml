@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb106927-d8b2-40c6-857a-3cd77fc86127" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/public/app/views/pages/users/leaderboard/leaderboard.html" afterPath="$PROJECT_DIR$/public/app/views/pages/users/leaderboard/leaderboard.html" />
+      <change beforePath="$PROJECT_DIR$/public/app/views/pages/liveawards.html" afterPath="$PROJECT_DIR$/public/app/views/pages/liveawards.html" />
       <change beforePath="$PROJECT_DIR$/public/app/views/pages/users/leaderboard/tableOutputGameWeekStats.json" afterPath="$PROJECT_DIR$/public/app/views/pages/users/leaderboard/tableOutputGameWeekStats.json" />
       <change beforePath="$PROJECT_DIR$/public/app/views/pages/users/leaderboard/tableOutputIronMan.json" afterPath="$PROJECT_DIR$/public/app/views/pages/users/leaderboard/tableOutputIronMan.json" />
       <change beforePath="$PROJECT_DIR$/public/app/views/pages/users/leaderboard/tableOutputKnockout.json" afterPath="$PROJECT_DIR$/public/app/views/pages/users/leaderboard/tableOutputKnockout.json" />
       <change beforePath="$PROJECT_DIR$/public/app/views/pages/users/leaderboard/tableOutputOverall.json" afterPath="$PROJECT_DIR$/public/app/views/pages/users/leaderboard/tableOutputOverall.json" />
       <change beforePath="$PROJECT_DIR$/public/app/views/pages/users/leaderboard/tableOutputPlayerIdToPlayerNameTeamName.json" afterPath="$PROJECT_DIR$/public/app/views/pages/users/leaderboard/tableOutputPlayerIdToPlayerNameTeamName.json" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/whammy.css" afterPath="$PROJECT_DIR$/public/assets/css/whammy.css" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,27 +30,42 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="liveawards.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="liveawards.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/app/views/pages/liveawards.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+            <state relative-caret-position="435">
+              <caret line="87" column="30" lean-forward="false" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
               <folding>
-                <marker date="1552842412208" expanded="true" signature="3887:3905" ph="..." />
-                <marker date="1552842412208" expanded="true" signature="4059:4082" ph="..." />
-                <marker date="1552842412208" expanded="true" signature="4142:4161" ph="..." />
-                <marker date="1552842412208" expanded="true" signature="4302:4321" ph="..." />
-                <marker date="1552842412208" expanded="true" signature="4438:4457" ph="..." />
-                <marker date="1552842412208" expanded="true" signature="4567:4586" ph="..." />
-                <marker date="1552842412208" expanded="true" signature="4727:4746" ph="..." />
-                <marker date="1552842412208" expanded="true" signature="5669:5687" ph="..." />
-                <marker date="1552842412208" expanded="true" signature="5823:5846" ph="..." />
-                <marker date="1552842412208" expanded="true" signature="5906:5925" ph="..." />
-                <marker date="1552842412208" expanded="true" signature="6051:6070" ph="..." />
-                <marker date="1552842412208" expanded="true" signature="6185:6204" ph="..." />
-                <marker date="1552842412208" expanded="true" signature="6357:6376" ph="..." />
-                <marker date="1552842412208" expanded="true" signature="6520:6539" ph="..." />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h5#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h5#0;n#div#0;n#div#0;n#div#0;n#div#2;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#section#0;n#!!top" expanded="true" />
+                <marker date="1552971737132" expanded="true" signature="4372:4390" ph="..." />
+                <marker date="1552971737132" expanded="true" signature="4544:4567" ph="..." />
+                <marker date="1552971737132" expanded="true" signature="4627:4646" ph="..." />
+                <marker date="1552971737132" expanded="true" signature="4787:4806" ph="..." />
+                <marker date="1552971737132" expanded="true" signature="4923:4942" ph="..." />
+                <marker date="1552971737132" expanded="true" signature="5052:5071" ph="..." />
+                <marker date="1552971737132" expanded="true" signature="5212:5231" ph="..." />
+                <marker date="1552971737132" expanded="true" signature="6154:6172" ph="..." />
+                <marker date="1552971737132" expanded="true" signature="6308:6331" ph="..." />
+                <marker date="1552971737132" expanded="true" signature="6391:6410" ph="..." />
+                <marker date="1552971737132" expanded="true" signature="6536:6555" ph="..." />
+                <marker date="1552971737132" expanded="true" signature="6670:6689" ph="..." />
+                <marker date="1552971737132" expanded="true" signature="6842:6861" ph="..." />
+                <marker date="1552971737132" expanded="true" signature="7005:7024" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="whammy.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/css/whammy.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="985" column="18" lean-forward="false" selection-start-line="985" selection-start-column="18" selection-end-line="985" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -89,10 +105,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leaderboard.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="leaderboard.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/views/pages/users/leaderboard/leaderboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2212">
+            <state relative-caret-position="-1886">
               <caret line="53" column="16" lean-forward="false" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
               <folding>
                 <marker date="1552926184488" expanded="true" signature="6433:6451" ph="..." />
@@ -159,10 +175,10 @@
         <option value="$PROJECT_DIR$/public/app/views/pages/users/reset/newpassword.html" />
         <option value="$PROJECT_DIR$/public/app/controller/emailCtrl.js" />
         <option value="$PROJECT_DIR$/app/routes/api.js" />
-        <option value="$PROJECT_DIR$/public/assets/css/whammy.css" />
         <option value="$PROJECT_DIR$/public/app/views/pages/rules.html" />
-        <option value="$PROJECT_DIR$/public/app/views/pages/liveawards.html" />
         <option value="$PROJECT_DIR$/public/app/views/pages/users/leaderboard/leaderboard.html" />
+        <option value="$PROJECT_DIR$/public/assets/css/whammy.css" />
+        <option value="$PROJECT_DIR$/public/app/views/pages/liveawards.html" />
       </list>
     </option>
   </component>
@@ -223,53 +239,6 @@
               <item name="newproject" type="b2602c69:ProjectViewProjectNode" />
               <item name="newproject" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newproject" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newproject" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newproject" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newproject" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newproject" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newproject" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
-              <item name="leaderboard" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="newproject" type="b2602c69:ProjectViewProjectNode" />
@@ -436,15 +405,15 @@
       <workItem from="1552324553069" duration="196000" />
       <workItem from="1552407758697" duration="3077000" />
       <workItem from="1552748403192" duration="8549000" />
-      <workItem from="1552926154930" duration="36000" />
+      <workItem from="1552926154930" duration="2912000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60494000" />
+    <option name="totallyTimeSpent" value="63370000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="976" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="976" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -498,6 +467,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12225">
           <caret line="815" column="36" lean-forward="false" selection-start-line="815" selection-start-column="36" selection-end-line="815" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -513,20 +483,25 @@
         <state relative-caret-position="1320">
           <caret line="88" column="42" lean-forward="false" selection-start-line="88" selection-start-column="42" selection-end-line="88" selection-end-column="42" />
           <folding>
-            <marker date="1552842412208" expanded="true" signature="3887:3905" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="4059:4082" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="4142:4161" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="4302:4321" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="4438:4457" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="4567:4586" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="4727:4746" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="5669:5687" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="5823:5846" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="5906:5925" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="6051:6070" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="6185:6204" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="6357:6376" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="6520:6539" ph="..." />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#0;n#div#0;n#div#0;n#div#0;n#div#2;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#section#0;n#!!top" expanded="true" />
+            <marker date="1552971737132" expanded="true" signature="4372:4390" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="4544:4567" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="4627:4646" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="4787:4806" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="4923:4942" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="5052:5071" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="5212:5231" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="6154:6172" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="6308:6331" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="6391:6410" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="6536:6555" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="6670:6689" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="6842:6861" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="7005:7024" ph="..." />
           </folding>
         </state>
       </provider>
@@ -826,13 +801,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/whammy.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/views/pages/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -880,32 +848,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/views/pages/liveawards.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-          <folding>
-            <marker date="1552842412208" expanded="true" signature="3887:3905" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="4059:4082" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="4142:4161" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="4302:4321" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="4438:4457" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="4567:4586" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="4727:4746" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="5669:5687" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="5823:5846" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="5906:5925" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="6051:6070" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="6185:6204" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="6357:6376" ph="..." />
-            <marker date="1552842412208" expanded="true" signature="6520:6539" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/views/pages/users/leaderboard/leaderboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2212">
+        <state relative-caret-position="-1886">
           <caret line="53" column="16" lean-forward="false" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
           <folding>
             <marker date="1552926184488" expanded="true" signature="6433:6451" ph="..." />
@@ -922,6 +867,42 @@
             <marker date="1552926184488" expanded="true" signature="8803:8822" ph="..." />
             <marker date="1552926184488" expanded="true" signature="8961:8980" ph="..." />
             <marker date="1552926184488" expanded="true" signature="9118:9137" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/whammy.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="985" column="18" lean-forward="false" selection-start-line="985" selection-start-column="18" selection-end-line="985" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/views/pages/liveawards.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="87" column="30" lean-forward="false" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#0;n#div#0;n#div#0;n#div#0;n#div#2;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#section#0;n#!!top" expanded="true" />
+            <marker date="1552971737132" expanded="true" signature="4372:4390" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="4544:4567" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="4627:4646" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="4787:4806" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="4923:4942" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="5052:5071" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="5212:5231" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="6154:6172" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="6308:6331" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="6391:6410" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="6536:6555" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="6670:6689" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="6842:6861" ph="..." />
+            <marker date="1552971737132" expanded="true" signature="7005:7024" ph="..." />
           </folding>
         </state>
       </provider>

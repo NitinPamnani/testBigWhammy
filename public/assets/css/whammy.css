@@ -980,3 +980,31 @@ section {
     width:auto;
   }
 }
+
+.blinker{
+
+  margin-top: 2.5%;
+  width:1vw;
+  height:1vw;
+  border-radius:50%;
+  background-color:green;
+  display:inline-block;
+  animation-duration:1s;
+  animation-name:blink;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+
+@keyframes blink{
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.blinker-text{
+  color:black;
+  font-size:2vw;
+}

@@ -55,6 +55,7 @@
                     <h5 class="modal-title" style="color:black;" id=knockoutModalOpenerCenterTitle">Knock Out Cup Standings</h5>
                 </div>
                 <div class="modal-body">
+                    <div class="input-group">
                     <div class="dropdown">
 
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="RoundSelect">Select Round
@@ -65,8 +66,11 @@
                             <li><a onclick="updateKnockoutTable(2)" data-value="2">ROUND 2</a></li>
                             <li><a onclick="updateKnockoutTable(3)" data-value="3">ROUND 3</a></li>
                             <li><a onclick="updateKnockoutTable(4)" data-value="4">ROUND 4</a></li>
+                            <li><a onclick="updateKnockoutTable(5)" data-value="5">SEMIFINALS</a></li>
                         </ul>
                     </div>
+                    <div id="currentRound" class="blinker" title="Round is in progress"></div>
+                    </div><br>
                     <div id = "knockoutCupContainer">
 
                     </div>
@@ -81,13 +85,21 @@
 <script>
     $(document).ready(function(){
         populateIronManData();
-        updateKnockoutTable(4);
+        updateKnockoutTable(5);
     });
 
     function updateKnockoutTable(round){
 
         if(round) {
-            $("#RoundSelect").html("Round:"+round);
+
+
+            if(round == '5') {
+                $("#RoundSelect").html("Semifinals");
+                $("#currentRound").show();
+            }else{
+                $("#RoundSelect").html("Round:"+round);
+                $("#currentRound").hide();
+            }
 
         }
 
