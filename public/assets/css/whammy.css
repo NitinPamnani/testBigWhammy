@@ -994,6 +994,14 @@ section {
   animation-iteration-count:infinite;
   animation-timing-function:linear;
 }
+.redLight{
+
+  margin-top: 2.5%;
+  width:1vw;
+  height:1vw;
+  border-radius:50%;
+  background-color:hsl(0,60%,70%);
+}
 
 @keyframes blink{
   50%{

@@ -70,6 +70,7 @@
                         </ul>
                     </div>
                     <div id="currentRound" class="blinker" title="Round is in progress"></div>
+                        <div id="roundEnded" class="redLight" title="This round has ended"></div>
                     </div><br>
                     <div id = "knockoutCupContainer">
 
@@ -95,7 +96,7 @@
 
             if(round == '5') {
                 $("#RoundSelect").html("Semifinals");
-                $("#currentRound").show();
+                $("#currentRound").hide();
             }else{
                 $("#RoundSelect").html("Round:"+round);
                 $("#currentRound").hide();
