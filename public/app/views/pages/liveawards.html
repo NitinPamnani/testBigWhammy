@@ -28,9 +28,50 @@
         </div>
     </div>
 
+        <div class="col-sm-4">
+            <div class="card" style="width: 20rem;">
+                <canvas id="playoff" class="card-img-top" width="360" height="235"></canvas>
+
+                <div class="card-block">
+                    <h4 class="card-title"><a id="playoffmodalopener" data-toggle="modal" data-target="#playOffModalOpener">Playoff Award</a></h4>
+                    <p class="card-text">Click on "PlayOff Award" to know the winner</p>
+                </div>
+            </div>
+        </div>
+
+</div>
+
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card" style="width: 20rem;">
+            <canvas id="gwslammer" class="card-img-top" width="360" height="235"></canvas>
+
+            <div class="card-block">
+                <h4 class="card-title"><a id="gwslammeropener" data-toggle="modal" data-target="#gwO">GameWeek Slammers</a></h4>
+                <p class="card-text">Click on "GameWeek Slammers" to know the winner</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 </div>
+
+    <div class=" modal fade" id="gwO" tabindex="-1" role="dialog" aria-labelledby="gwslammermodalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="color:black;" id="gwslammermodalTitle">Game Week Slammers </h5>
+                </div>
+                <div class="modal-body">
+                    <div id = "gwslammermodalcontainer"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
 <div class=" modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -49,13 +90,13 @@
 
 
     <div class=" modal fade" id="knockoutModalOpener" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered " role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" style="color:black;" id=knockoutModalOpenerCenterTitle">Knock Out Cup Standings</h5>
-                </div>
-                <div class="modal-body">
-                    <div class="input-group">
+    <div class="modal-dialog modal-dialog-centered " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="color:black;" id=knockoutModalOpenerCenterTitle">Knock Out Cup Standings</h5>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
                     <div class="dropdown">
 
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="RoundSelect">Select Round
@@ -67,27 +108,93 @@
                             <li><a onclick="updateKnockoutTable(3)" data-value="3">ROUND 3</a></li>
                             <li><a onclick="updateKnockoutTable(4)" data-value="4">ROUND 4</a></li>
                             <li><a onclick="updateKnockoutTable(5)" data-value="5">SEMIFINALS</a></li>
+                            <li><a onclick="updateKnockoutTable(6)" data-value="6">FINAL</a></li>
                         </ul>
                     </div>
                     <div id="currentRound" class="blinker" title="Round is in progress"></div>
-                        <div id="roundEnded" class="redLight" title="This round has ended"></div>
-                    </div><br>
-                    <div id = "knockoutCupContainer">
+                    <div id="roundEnded" class="redLight" title="This round has ended"></div>
+                </div><br>
+                <div id = "knockoutCupContainer">
 
-                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <div class=" modal fade" id="playOffModalOpener" tabindex="-1" role="dialog" aria-labelledby="playOffModalOpenerTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="color:black;" id="playOffModalOpenerTitle">PlayOff Award</h5>
+                </div>
+                <div class="modal-body" style="background-color: #4e555b;">
+                    <div id = "playOffAwardModalBody" ></div>
                 </div>
                 <div class="modal-footer">
                 </div>
             </div>
         </div>
     </div>
+
+
+
 </section>
 
 <script>
     $(document).ready(function(){
         populateIronManData();
-        updateKnockoutTable(5);
+        updateKnockoutTable(6);
+        updatePlayOffWinner();
+        updateGameweekSlammers();
     });
+
+    function updateGameweekSlammers(){
+        $.getJSON("app/views/pages/users/leaderboard/tableOutputSlammer.json", function (data) {
+
+
+
+            var htmlData = "<div class=\"table-responsive\"><table style='text-align:center;' class=\"table table-dark table-hover table-responsive\" id=\"SlammerTable\">\n" +
+                "                        <tr style='background-color: grey;'>\n" +
+                "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"GAME WEEK\">GAME WEEKK</th>\n" +
+                "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"MANAGER\">MANAGER </th>\n" +
+                "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"TEAMNAME\">TEAMNAME</th>\n" +
+                "                        <th style='text-align: center;' data-toggle=\"tooltip\" title=\"POITS SCORED\">POINTS SCORED</th>\n" +
+                "                        </tr>\n" +
+                "                        \n";
+
+            $.each(data, function(gameweek, entry){
+                $.each(entry, function(playerId, entryDetails){
+                    htmlData += "<tr><td>"+ gameweek + "</td>" + "<td>" + entryDetails['playername'] + "</td>" + "<td>" + entryDetails['teamname'] + "</td>" + "<td>" + entryDetails['gwpoints'] +"</td>" ;
+                });
+            });
+            htmlData += "</table>" + "</div>";
+            $('#gwslammermodalcontainer').html(htmlData);
+
+
+            sortTable("SlammerTable",0,"TD");
+
+
+
+        });
+
+    }
+
+
+    function updatePlayOffWinner(){
+        $.getJSON("app/views/pages/users/leaderboard/tableOutputPlayoff.json", function(data){
+           $.each(data['playoff'], function(entry, details){
+               var htmlData = "<p>Cogratulations!!! "+"<strong>"+details["playername"]+"</strong>"+" your team "+details['teamname']+" scored maximum in game week 38 among the challengers for the award."+"</p>";
+               $("#playOffAwardModalBody").html(htmlData);
+           });
+
+        });
+
+    }
 
     function updateKnockoutTable(round){
 
@@ -96,6 +203,9 @@
 
             if(round == '5') {
                 $("#RoundSelect").html("Semifinals");
+                $("#currentRound").hide();
+            }else if(round == '6'){
+                $("#RoundSelect").html("final");
                 $("#currentRound").hide();
             }else{
                 $("#RoundSelect").html("Round:"+round);

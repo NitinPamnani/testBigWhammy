@@ -86,7 +86,7 @@ $(document).ready(function(){
   updateLeaderBoardTable(1);
 });
 
-function adjustRanks(tableId, valueToCompare, elementTypeToCompare){
+function adjustRanks(tableId, valueToCompare, elementTypeToCompare, flag){
   console.log("Adjusting ranks");
   var table, rows, processing,rank,prev,next,x,y;
   rank = 1;
@@ -100,7 +100,12 @@ function adjustRanks(tableId, valueToCompare, elementTypeToCompare){
       var xRank = rows[i].getElementsByTagName(elementTypeToCompare)[0];
       if(parseInt(prev) != parseInt(next)){
         rank++;
+      }else{
+          if(flag == "overall"){
+              rank++;
+          }
       }
+
       prev = next;
       xRank.innerHTML = rank;
     }
@@ -177,7 +182,7 @@ function updateOverAllLeaderBoardTable() {
 
         $(document).ready(function(){
             sortTable("leaderboardTable",3,"TD");
-            adjustRanks("leaderboardTable",3,"TD");
+            adjustRanks("leaderboardTable",3,"TD","overall");
         });
     });
 }
@@ -240,7 +245,7 @@ $.getJSON("app/views/pages/users/leaderboard/tableOutputGameWeekStats.json", fun
 
             $(document).ready(function(){
               sortTable("leaderboardTable",3,"TD");
-              adjustRanks("leaderboardTable",3,"TD");
+              adjustRanks("leaderboardTable",3,"TD","gameweek");
             });
 
 
