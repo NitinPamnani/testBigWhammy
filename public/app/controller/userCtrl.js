@@ -1,5 +1,30 @@
 angular.module('userControllers',['userServices','notificationServices'])
 
+.controller('declCtrl', function($http,$location, $timeout, User, Notifications){
+  var app = this;
+  this.regDeclaration = function(declData, valid, pristine) {
+      app.loading = true;
+      app.successMsg = false;
+      app.errorMsg = false;
+    console.log(declData);
+    User.submitDeclaration(declData).then(function(data){
+      if(data.data.success){
+          app.loading = false;
+        app.successMsg = data.data.message;
+          Notifications.showNotification('success',app.successMsg,'The Big Whammy');
+          $timeout(function() {
+              $location.path('/');
+          }, 4000);
+      }else{
+          app.loading = false;
+          //create an error message
+          app.errorMsg = data.data.message;
+          Notifications.showNotification('error',app.errorMsg,'The Big Whammy');
+      }
+    });
+  }
+})
+
 .controller('regCtrl', function($http, $location, $timeout, User, Notifications) {
 
   var app = this;

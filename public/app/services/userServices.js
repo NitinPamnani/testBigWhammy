@@ -8,6 +8,10 @@ angular.module('userServices', [])
     return $http.post('/api/users', regData);
   }
 
+  //User.submitDeclaration(declData)
+  userFactory.submitDeclaration = function(declData) {
+      return $http.post('/api/updateDeclaration', declData);
+  }
   //User.checkUsername(regData);
   userFactory.checkUsername = function(regData) {
     return $http.post('/api/checkusername', regData);

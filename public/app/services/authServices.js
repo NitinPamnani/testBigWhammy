@@ -22,7 +22,11 @@ angular.module('authServices', [])
 
   authFactory.hasPaid = function() {
     return $http.post('/api/entrygranted');
-  }
+  };
+
+  authFactory.agreesToPay2019 = function() {
+        return $http.post('/api/isdeclarationfilled');
+  };
 
 
   authFactory.getUser = function() {

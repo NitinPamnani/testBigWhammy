@@ -73,7 +73,11 @@ var userSchema = new Schema({
   hastopay: {type:Number, default:110000},
   haspaid: {type:Boolean, default:false},
   razorpaypaymentid:{type:String, default:null},
-  resettoken:{type: String, required: false}
+  resettoken:{type: String, required: false},
+  team2019: {type:String, default:null},
+  payment2019:{type:Number, default:130000},
+  agreetopay2019:{type:Boolean, default:false},
+  haspaid2019:{type:Boolean, default:false}
 });
 
 userSchema.pre('save', function(next){

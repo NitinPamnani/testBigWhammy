@@ -13,6 +13,24 @@ var app = angular.module('appRoutes',['ngRoute'])
     authenticated: true
   })
 
+  .when('/games',{
+    templateUrl:'app/views/pages/games.html',
+    authenticated: true
+  })
+
+
+  .when('/paymentdeclaration',{
+    templateUrl:'app/views/pages/paymentdeclaration.html',
+    controller: 'declCtrl',
+    controllerAs: 'declaration',
+    authenticated: true
+  })
+
+  .when('/mini',{
+    templateUrl:'app/views/pages/mini.html',
+     authenticated: true
+  })
+
   .when('/register',{
     templateUrl:'app/views/pages/users/register.html',
     controller: 'regCtrl',

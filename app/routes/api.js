@@ -435,6 +435,23 @@ var client = nodemailer.createTransport({
    })
  });
 
+ router.post('/isdeclarationfilled', function(req, res){
+        User.findOne({ username: req.decoded.username }).select('agreetopay2019').exec(function(err,user){
+            if(err) throw err;
+
+            if(!user){
+                res.json({ success:false, message: 'Could not validate token.' });
+            }else if(user) {
+                if(user.agreetopay2019){
+                    res.json({ success: true, message: 'User has agreed to pay later.' });
+                }else{
+                    res.json({ success:false, message: 'User denies to pay later.' });
+                }
+            }
+        })
+ });
+
+
  router.post('/rzpay', function(req, res){
    User.findOne({ username: req.decoded.username }).select('contactnum email hastopay fullname').exec(function(err,user){
      if(err) throw err;
@@ -485,6 +502,19 @@ var client = nodemailer.createTransport({
 
        }
      });
+   });
+
+   router.post('/updateDeclaration', function(req, res){
+       //console.log("reaches here"+req.body.email);
+       User.updateOne({ email:req.decoded.email}, {$set:{ team2019:req.body.teamname, agreetopay2019:req.body.agreeWithDeclaration, payment2019:130000, haspaid2019:false}}, (function(err, user){
+        if(err) throw err;
+
+           if(user.nModified > 0){
+               res.json({success: true, message: 'Updated the declaration for '+req.body.firstname+" "+req.body.lastname});
+           }else{
+               res.json({success: false, message: 'Could not update declaration for '+req.body.firstname+" "+req.body.lastname});
+           }
+       }));
    });
 
   return router;

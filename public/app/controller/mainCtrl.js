@@ -15,11 +15,15 @@ angular.module('mainController',['authServices', 'userServices','notificationSer
           app.fullname = data.data.fullname;
           app.username = data.data.username;
           app.useremail = data.data.email;
+          app.agreetopay2019 = false;
           app.loadme = true;
           app.hasPaid = false;
           Auth.hasPaid().then(function(data){
             app.hasPaid = data.data.success;
             //console.log(data);
+          });
+          Auth.agreesToPay2019().then(function(data){
+            app.agreetopay2019 = data.data.success;
           });
         });
       }else {
