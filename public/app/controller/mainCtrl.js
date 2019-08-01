@@ -25,6 +25,10 @@ angular.module('mainController',['authServices', 'userServices','notificationSer
           Auth.agreesToPay2019().then(function(data){
             app.agreetopay2019 = data.data.success;
           });
+          Auth.hasjoinedleagues2019().then(function(data){
+            app.hasjoinedleagues2019 = data.data.success;
+          });
+
         });
       }else {
         app.isLoggedIn = false;

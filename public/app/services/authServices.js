@@ -28,6 +28,9 @@ angular.module('authServices', [])
         return $http.post('/api/isdeclarationfilled');
   };
 
+    authFactory.hasjoinedleagues2019 = function() {
+        return $http.post('/api/hasjoined2019');
+    };
 
   authFactory.getUser = function() {
     if(AuthToken.getToken()){

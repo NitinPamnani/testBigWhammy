@@ -1,6 +1,6 @@
 
 <header id="site-header" class="site-header valign-center">
-  <div class="intro">
+  <div class="intro" ng-init="classicCode='JOIN THE BIG WHAMMY CLASSIC';headToHeadCode='JOIN THE BIG WHAMMY HEAD TO HEAD'" >
       <h1>BE A PART OF THE BIG WHAMMY FAMILY THIS SEASON!</h1>
       <p>WITH FANTASY LEAGUE AND MUCH MORE</P>
       <div class="container" ng-show="!main.isLoggedIn">
@@ -8,10 +8,34 @@
         <span style="font-size:7vw; color:black;vertical-align:middle;">&nbsp/&nbsp</span>
         <a class="btn btn-black" href="/login" >LOGIN</a>
       </div>
+      <!--
       <div ng-show="main.isLoggedIn">
         <a class="btn btn-black" href="/leaderboard" disabled>VIEW LEADERBOARD</a>
         <br><br>
         <a class="btn btn-black" href="/liveawards" disabled>VIEW LIVE AWARDS</a>
+      </div>
+      -->
+
+      <div ng-show="main.agreetopay2019">
+          <p>THIS SEASON IS GOING TO BE BETTER AND MORE FUN WITH A NEW HEAD TO HEAD BIG WHAMMY. JOIN BELOW</p>
+          <p>(PLEASE ENSURE THAT YOU ARE LOGGED IN INTO THE FPL SITE. IGNORE IF JOINED ALREADY)</p>
+          <p><strong>NOTE:</strong> THE FEES MENTIONED IN THE DECLARATION FORM COVERS THE CLASSIC AND HEAD TO HEAD LEAGUE</p>
+      </div>
+
+      <div ng-show="main.agreetopay2019" ng-mouseover="classicCode='JOIN THE BIG WHAMMY CLASSIC'">
+          <a class="btn btn-black" ng-mouseover="" href="https://fantasy.premierleague.com/leagues/join/private" target="_blank">{{classicCode}}</a>
+          <p style="text-transform: lowercase">USE CODE:`mawmzx`</p>
+      </div>
+        <br>
+      <div ng-show="main.agreetopay2019" ng-mouseover="headToHeadCode='JOIN THE BIG WHAMMY HEAD TO HEAD'">
+          <a class="btn btn-black" href="https://fantasy.premierleague.com/leagues/join/private" target="_blank">{{headToHeadCode}}</a>
+          <p style="text-transform: lowercase">USE CODE:`cr84b4`</p>
+      </div>
+
+
+      <div ng-show="!main.agreetopay2019">
+      <p>IN ORDER TO JOIN THE LEAGUE, YOU NEED TO SIGN THE DECLARATION FIRST</p>
+      <p>UNDER GAMES TAB, NAVIGATE TO "PLAY THE BIG WHAMMY"</p>
       </div>
   </div>
 </header>

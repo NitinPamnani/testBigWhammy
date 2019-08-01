@@ -77,7 +77,8 @@ var userSchema = new Schema({
   team2019: {type:String, default:null},
   payment2019:{type:Number, default:130000},
   agreetopay2019:{type:Boolean, default:false},
-  haspaid2019:{type:Boolean, default:false}
+  haspaid2019:{type:Boolean, default:false},
+  hasjoinedleagues2019:{type:Boolean, default:false}
 });
 
 userSchema.pre('save', function(next){

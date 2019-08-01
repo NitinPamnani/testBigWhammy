@@ -452,6 +452,24 @@ var client = nodemailer.createTransport({
  });
 
 
+
+    router.post('/hasjoined2019', function(req, res){
+        User.findOne({ username: req.decoded.username }).select('hasjoined2019').exec(function(err,user){
+            if(err) throw err;
+
+            if(!user){
+                res.json({ success:false, message: 'Could not validate token.' });
+            }else if(user) {
+                if(user.agreetopay2019){
+                    res.json({ success: true, message: 'User has already joined.' });
+                }else{
+                    res.json({ success:false, message: 'User has not joined yet.' });
+                }
+            }
+        })
+    });
+
+
  router.post('/rzpay', function(req, res){
    User.findOne({ username: req.decoded.username }).select('contactnum email hastopay fullname').exec(function(err,user){
      if(err) throw err;
