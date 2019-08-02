@@ -18,12 +18,20 @@ var options = {
 
 //var client = nodemailer.createTransport(sgTransport(options));
 var client = nodemailer.createTransport({
-  host: 'smtpout.asia.secureserver.net',
+  /*host: 'smtpout.asia.secureserver.net',
   port: 465,
   secure: true,
   auth: {
     user: 'info@thebigwhammy.com',
-    pass: 'TheBigWhammy@123'
+    pass: 'TheBigWhammy@123'*/
+
+
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+          user: 'thebigwhammyofficial@gmail.com',
+          pass: 'TheBigWhammy@123'
   }
 });
 
