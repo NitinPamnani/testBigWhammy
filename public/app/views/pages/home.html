@@ -16,18 +16,18 @@
       </div>
       -->
 
-      <div ng-show="main.agreetopay2019">
+      <div ng-show="main.agreetopay2019 && main.isLoggedIn">
           <p>THIS SEASON IS GOING TO BE BETTER AND MORE FUN WITH A NEW HEAD TO HEAD BIG WHAMMY. JOIN BELOW</p>
           <p>(PLEASE ENSURE THAT YOU ARE LOGGED IN INTO THE FPL SITE. IGNORE IF JOINED ALREADY)</p>
           <p><strong>NOTE:</strong> THE FEES MENTIONED IN THE DECLARATION FORM COVERS THE CLASSIC AND HEAD TO HEAD LEAGUE</p>
       </div>
 
-      <div ng-show="main.agreetopay2019" ng-mouseover="classicCode='JOIN THE BIG WHAMMY CLASSIC'">
+      <div ng-show="main.agreetopay2019 && main.isLoggedIn" ng-mouseover="classicCode='JOIN THE BIG WHAMMY CLASSIC'">
           <a class="btn btn-black" ng-mouseover="" href="https://fantasy.premierleague.com/leagues/join/private" target="_blank">{{classicCode}}</a>
           <p style="text-transform: lowercase">USE CODE:`mawmzx`</p>
       </div>
         <br>
-      <div ng-show="main.agreetopay2019" ng-mouseover="headToHeadCode='JOIN THE BIG WHAMMY HEAD TO HEAD'">
+      <div ng-show="main.agreetopay2019 && main.isLoggedIn" ng-mouseover="headToHeadCode='JOIN THE BIG WHAMMY HEAD TO HEAD'">
           <a class="btn btn-black" href="https://fantasy.premierleague.com/leagues/join/private" target="_blank">{{headToHeadCode}}</a>
           <p style="text-transform: lowercase">USE CODE:`cr84b4`</p>
       </div>
