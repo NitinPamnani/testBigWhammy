@@ -91,7 +91,7 @@ var client = nodemailer.createTransport({
             to: user.email,
             subject: 'The Big Whammy account activation link',
             text: 'Hello' + user.fullname + 'Thank you for registering at The Big Whammy. Please click on the following to complete the activation: http://www.thebigwhammy.com/activate/'+user.temporarytoken,
-            html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br> Thank you for registering at The Big Whammy. Please click the link below to complete the activation:<br><a href="http://www.thebigwhammy.com/activate/'+user.temporarytoken+'">http://www.thebigwhammy.com/activate/</a>'
+            html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br> Thank you for registering at The Big Whammy. Please click the link below to complete the activation:<br><a href="http://www.thebigwhammy.com/activate/'+user.temporarytoken+'">http://www.thebigwhammy.com/activate/</a><br><strong>Note: In case of any issue please reach out to us at info@thebigwhammy.com<br>Please do not reply to this email</strong>'
           };
 
           client.sendMail(email, function(err, info){
@@ -215,7 +215,7 @@ var client = nodemailer.createTransport({
             to: user.email,
             subject: 'Big Whammy account activation link Request',
             text: 'Hello' + user.fullname + 'You recently requested a new account activation link. Please click on the following to cpmplete the activation: http://www.thebigwhammy.com/activate/'+user.temporarytoken,
-            html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br>You recently requested a new account activation link. Please click the link below to complete the activation:<br><a href="http://www.thebigwhammy.com/activate/'+user.temporarytoken+'">http://www.thebigwhammy.com/activate/</a>'
+            html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br>You recently requested a new account activation link. Please click the link below to complete the activation:<br><a href="http://www.thebigwhammy.com/activate/'+user.temporarytoken+'">http://www.thebigwhammy.com/activate/</a><br><strong>Note: In case of any issue please reach out to us at info@thebigwhammy.com<br>Please do not reply to this email</strong>'
           };
 
           client.sendMail(email, function(err, info){
@@ -254,7 +254,7 @@ var client = nodemailer.createTransport({
                 to: user.email,
                 subject: 'Account activated',
                 text: 'Hello' + user.fullname + 'Your account has been successfully activated',
-                html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br>Your account has been successfully activated.'
+                html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br>Your account has been successfully activated.<br><strong>Note: In case of any issue please reach out to us at info@thebigwhammy.com<br>Please do not reply to this email</strong>'
               };
 
               client.sendMail(email, function(err, info){
@@ -330,7 +330,7 @@ var client = nodemailer.createTransport({
                       to: user.email,
                       subject: 'The Big Whammy account reset password request',
                       text: 'Hello' + user.fullname + 'You recently requested a password reset for your account associated with The Big Whammy. Please click on the following to complete the process: http://www.thebigwhammy.com/reset/'+user.resettoken,
-                      html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br> You recently requested a password reset for your account associated with The Big Whammy. Please click on the following to complete the process:<br><a href="http://www.thebigwhammy.com/reset/'+user.resettoken+'">http://www.thebigwhammy.com/reset/</a>'
+                      html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br> You recently requested a password reset for your account associated with The Big Whammy. Please click on the following to complete the process:<br><a href="http://www.thebigwhammy.com/reset/'+user.resettoken+'">http://www.thebigwhammy.com/reset/</a><br><strong>Note: In case of any issue please reach out to us at info@thebigwhammy.com<br>Please do not reply to this email</strong>'
                   };
 
                   client.sendMail(email, function(err, info){
@@ -384,7 +384,7 @@ var client = nodemailer.createTransport({
                     to: user.email,
                     subject: 'The Big Whammy account reset password request',
                     text: 'Hello' + user.fullname + 'This email is to notify you that your password was recently reset at The Big Whammy',
-                    html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br> This email is to notify you that your password was recently reset at The Big Whammy'
+                    html: 'Hello <strong>' + user.fullname + '</strong>,<br><br>Username: <strong>'+ user.username +'</strong><br><br> This email is to notify you that your password was recently reset at The Big Whammy<br><strong>Note: In case of any issue please reach out to us at info@thebigwhammy.com<br>Please do not reply to this email</strong>'
                 };
 
                 client.sendMail(email, function(err, info){

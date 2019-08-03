@@ -65,7 +65,7 @@ var userSchema = new Schema({
   email: {type: String, required: true, lowercase: true, unique:true, validate: emailValidator},
   favclub: {type: String, required: true, lowercase: true},
   contactnum: {type:String, required:true, unique:true},
-  refferedby: {type:String, lowercase: true},
+  refferedby: {type:String, lowercase: true, default:"TBW"},
   country: {type:String, lowercase: true},
   dob: {type:Number},
   active: {type:Boolean, required:true, default: false},
