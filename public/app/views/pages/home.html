@@ -1,6 +1,6 @@
 
 <header id="site-header" class="site-header valign-center">
-  <div class="intro" ng-init="classicCode='JOIN THE BIG WHAMMY CLASSIC';headToHeadCode='JOIN THE BIG WHAMMY HEAD TO HEAD'" >
+  <div class="intro" ng-init="classicCode='JOIN THE BIG WHAMMY CLASSIC';headToHeadCode='JOIN THE BIG WHAMMY HEAD TO HEAD';whatsappLink='CLICK THIS BUTTON TO JOIN'" >
       <h1>BE A PART OF THE BIG WHAMMY FAMILY THIS SEASON!</h1>
       <p>WITH FANTASY LEAGUE AND MUCH MORE</P>
       <div class="container" ng-show="!main.isLoggedIn">
@@ -19,7 +19,7 @@
       <div ng-show="main.agreetopay2019 && main.isLoggedIn">
           <p>THIS SEASON IS GOING TO BE BETTER AND MORE FUN WITH A NEW HEAD TO HEAD BIG WHAMMY. JOIN BELOW</p>
           <p>(PLEASE ENSURE THAT YOU ARE LOGGED IN INTO THE FPL SITE. IGNORE IF JOINED ALREADY)</p>
-          <p><strong>NOTE:</strong> THE FEES MENTIONED IN THE DECLARATION FORM COVERS THE CLASSIC AND HEAD TO HEAD LEAGUE</p>
+          <p><strong>NOTE: THE FEES MENTIONED IN THE DECLARATION FORM COVERS THE CLASSIC AND HEAD TO HEAD LEAGUE</strong></p>
       </div>
 
       <div ng-show="main.agreetopay2019 && main.isLoggedIn" ng-mouseover="classicCode='JOIN THE BIG WHAMMY CLASSIC'">
@@ -31,6 +31,17 @@
           <a class="btn btn-black" href="https://fantasy.premierleague.com/leagues/join/private" target="_blank">{{headToHeadCode}}</a>
           <p style="text-transform: lowercase">USE CODE:`cr84b4`</p>
       </div>
+      <div ng-show="main.agreetopay2019 && main.isLoggedIn" ng-mouseover="headToHeadCode='JOIN THE BIG WHAMMY HEAD TO HEAD'">
+          <p >WITNESS AND JOIN ALL THE BANTER FROM THE BIG WHAMMY</p>
+          <a class="btn btn-black" href="https://chat.whatsapp.com/9i49CPGEXBqBonEVFA4lgs" target="_blank">{{whatsappLink}}</a>
+         <div class="col-md-4 center">
+                <p>OR SCAN THE QR CODE:</p>
+              <img style="width:5vw;height:5vw" class="card-img-top" src="../assets/images/qr.jpeg" alt="Card image">
+
+         </div>
+
+      </div>
+
 
 
       <div ng-show="!main.agreetopay2019">
