@@ -110,6 +110,16 @@ var client = nodemailer.createTransport({
     }
   });
 
+    router.post('/getAllEmails', function(req,res){
+        console.log("Works");
+        User.find().select('email fullname contactnum haspaid agreetopay2019').exec(function(err, user){
+            if(err) throw err;
+            if(user){
+                res.json(user);
+            }
+
+        });
+    });
 
   router.post('/checkusername', function(req, res){
     User.findOne({ username: req.body.username}).select('username').exec(function(err,user) {
@@ -542,6 +552,8 @@ var client = nodemailer.createTransport({
            }
        }));
    });
+
+
 
   return router;
 }
