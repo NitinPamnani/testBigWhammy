@@ -78,7 +78,8 @@ var userSchema = new Schema({
   payment2019:{type:Number, default:130000},
   agreetopay2019:{type:Boolean, default:false},
   haspaid2019:{type:Boolean, default:false},
-  hasjoinedleagues2019:{type:Boolean, default:false}
+  hasjoinedleagues2019:{type:Boolean, default:false},
+  instapaymentid2019:{type:String, default:null}
 });
 
 userSchema.pre('save', function(next){

@@ -18,7 +18,11 @@ angular.module('mainController',['authServices', 'userServices','notificationSer
           app.agreetopay2019 = false;
           app.loadme = true;
           app.hasPaid = false;
-          Auth.hasPaid().then(function(data){
+          app.haspaid2019 =false;
+          Auth.haspaid2019().then(function(data){
+            app.haspaid2019 = data.data.success;
+          });
+          Auth.haspaid2019().then(function(data){
             app.hasPaid = data.data.success;
             //console.log(data);
           });
@@ -122,6 +126,10 @@ angular.module('mainController',['authServices', 'userServices','notificationSer
         }
       });
     };*/
+
+
+
+
     this.makepurchase = function(){
       app.openpaymentform = false;
       Auth.makepurchase().then(function(data){

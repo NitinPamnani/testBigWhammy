@@ -23,6 +23,8 @@
           <a class="btn btn-black" href="/leaderboard" disabled>VIEW LEADERBOARD</a>
           <br><br>
           <a class="btn btn-black" href="/liveawards" disabled>VIEW LIVE AWARDS</a>
+          <br><br>
+          <a ng-show="!main.haspaid2019" class="btn btn-black" href="#" disabled ng-click="main.makepurchase()">MAKE PAYMENT</a>
       </div>
 
       <!--<div ng-show="main.agreetopay2019 && main.isLoggedIn" ng-mouseover="classicCode='JOIN THE BIG WHAMMY CLASSIC'">

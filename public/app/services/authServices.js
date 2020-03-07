@@ -20,7 +20,7 @@ angular.module('authServices', [])
     }
   };
 
-  authFactory.hasPaid = function() {
+  authFactory.haspaid2019 = function() {
     return $http.post('/api/entrygranted');
   };
 

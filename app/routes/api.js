@@ -438,13 +438,13 @@ var client = nodemailer.createTransport({
  });
 
  router.post('/entrygranted', function(req, res){
-   User.findOne({ username: req.decoded.username }).select('haspaid').exec(function(err,user){
+   User.findOne({ username: req.decoded.username }).select('haspaid2019').exec(function(err,user){
      if(err) throw err;
 
      if(!user){
        res.json({ success:false, message: 'Could not validate token.' });
      }else if(user) {
-       if(user.haspaid){
+       if(user.haspaid2019){
          res.json({ success: true, message: 'User has paid.' });
        }else{
          res.json({ success:false, message: 'User is yet to pay.' });
@@ -502,7 +502,7 @@ var client = nodemailer.createTransport({
 
  router.post('/rzupdate', function(req, res){
    //TODO: Verify payment on RazorPay before updating it in db
-   User.updateOne({ username:req.decoded.username }, {$set: { haspaid:true, razorpaypaymentid:req.body.instaMojoId}},(function(err, user){
+   User.updateOne({ username:req.decoded.username }, {$set: { haspaid2019:true, instapaymentid2019:req.body.instaMojoId}},(function(err, user){
      if(err){ throw err;}
 
      if(user.nModified > 0){
