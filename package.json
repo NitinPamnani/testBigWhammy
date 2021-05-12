@@ -22,7 +22,7 @@
     "mongoose-validator": "^2.1.0",
     "morgan": "^1.9.0",
     "ng-intl-tel-input": "^2.0.0",
-    "nodemailer": "^4.6.7",
+    "nodemailer": "^6.4.16",
     "nodemailer-sendgrid-transport": "^0.2.0"
   }
 }
